@@ -11,4 +11,5 @@ int main() {
         sumOfSquares += pow(i,2);
     }
     squareOfSum = pow(squareOfSum,2);
+    cout << squareOfSum - sumOfSquares << endl;
 }
