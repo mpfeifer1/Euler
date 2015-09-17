@@ -31,5 +31,5 @@ int main() {
             newNumber++;
         }
     }
-    cout << desired << "th prime: " << primes[desired] << endl;
+    cout << desired << "th prime: " << primes[desired - 1] << endl;
 }
