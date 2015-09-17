@@ -8,6 +8,10 @@ int main() {
     int desiredLength = 4; //TODO change to 13
     for(int i = 0; i < source.length() - desiredLength + 1; i++) {
         string digits = source.substr(i, desiredLength);
-        cout << digits << endl;
+        int total = 1;
+        for(int j = 0; j < desiredLength; j++) {
+            total *= stoi(digits.substr(j, 1));
+        }
+        cout << "Multiplied: " << total << endl;
     }
 }
