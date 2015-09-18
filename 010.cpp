@@ -25,7 +25,6 @@ int main() {
     long int currentPrime = 2;
     long int sum = 0;
     while(currentPrime < max) {
-        cout << "Current Prime: " << currentPrime << endl;
         sum += currentPrime;
         currentPrime = getNextPrime(currentPrime);
     }
