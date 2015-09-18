@@ -12,7 +12,6 @@ int main() {
         for(int j = 1; j < desired / 2; j++) {
             double number = sqrt(pow(i,2) + pow(j,2));
             if(floor(number) == number) {
-                cout << "Pyth triplet: " << i << " " << j << " " << number << endl;
                 if(number + i + j == desired) {
                     answer = number * i * j;
                     cout << "Answer is: " << answer << fixed << endl;
