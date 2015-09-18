@@ -21,7 +21,7 @@ int getNextPrime(int number) {
 }
 
 int main() {
-    int max = 10;
+    int max = 2000000;
     long int currentPrime = 2;
     long int sum = 0;
     while(currentPrime < max) {
