@@ -4,10 +4,10 @@
 using namespace std;
 
 int main() {
-    int desired = 25;
+    int desired = 1000;
     int answer = 0;
-    for(int i = 0; i < sqrt(desired); i++) {
-        for(int j = 0; j < sqrt(desired); j++) {
+    for(int i = 1; i < desired / 3; i++) {
+        for(int j = 1; j < desired / 3; j++) {
             double number = sqrt(pow(i,2) + pow(j,2));
             if(floor(number) == number) {
                 cout << "Pyth triplet: " << i << " " << j << " " << number << endl;
