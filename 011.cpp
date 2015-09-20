@@ -25,13 +25,10 @@ int main() {
                               {20,73,35,29,78,31,90, 1,74,31,49,71,48,86,81,16,23,57, 5,54},
                               { 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48}};
 
-    setprecision(10);
-    cout << fixed;
-
     int grid_height = 20;
     int grid_width = 20;
     int search_length = 4;
-    double maxProduct = 0;
+    double max_product = 0;
 
     // Check Horizontally
     for(int i = 0; i < grid_height; i++) {
@@ -40,7 +37,37 @@ int main() {
                              grid[i][j+1] *
                              grid[i][j+2] *
                              grid[i][j+3];
-            cout << "Product is " << product << endl;
+            if(product > max_product) {
+                max_product = product;
+            }
+        }
+    }
+    cout << max_product << endl;
+
+    // Check Vertically
+    for(int i = 0; i < grid_width; i++) {
+        for(int j = 0; j < grid_height - search_length; j++) {
+            double product = grid[j][i] *
+                             grid[j+1][i] *
+                             grid[j+2][i] *
+                             grid[j+3][i];
+            if(product > max_product) {
+                max_product = product;
+            }
+        }
+    }
+    cout << max_product << endl;
+
+    // Check diagonally
+    for(int i = 0; i < grid-height - search_length; i++) {
+        for(int j = 0; j < grid-length - search_length; j++) {
+            double product = grid[i][j] *
+                             grid[i+1][j+1] *
+                             grid[i+2][j+2] *
+                             grid[i+3][j+3];
+            if(product > max_product) {
+                max_product = product;
+            }
         }
     }
 }
