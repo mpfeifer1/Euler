@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,4 +24,23 @@ int main() {
                               {20,69,36,41,72,30,23,88,34,62,99,69,82,67,59,85,74, 4,36,16},
                               {20,73,35,29,78,31,90, 1,74,31,49,71,48,86,81,16,23,57, 5,54},
                               { 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48}};
+
+    setprecision(10);
+    cout << fixed;
+
+    int grid_height = 20;
+    int grid_width = 20;
+    int search_length = 4;
+    double maxProduct = 0;
+
+    // Check Horizontally
+    for(int i = 0; i < grid_height; i++) {
+        for (int j = 0; j < grid_width - search_length; j++) {
+            double product = grid[i][j] *
+                             grid[i][j+1] *
+                             grid[i][j+2] *
+                             grid[i][j+3];
+            cout << "Product is " << product << endl;
+        }
+    }
 }
