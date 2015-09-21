@@ -10,7 +10,7 @@ int main() {
     int number = 5;
     cout << "Enter a number: ";
     cin >> number;
-    cout << "Letters in " << number << ": " << tensToLetters(number) << endl;
+    cout << "Letters in " << number << ": " << countLetters(number) << endl;
 }
 
 
@@ -18,11 +18,14 @@ int main() {
 int countLetters(int number) {
     int letters = 0;
 
-    int numberCopy = number;
-    // Count tens/hundreds/thousand
     if(number == 1000) {
-        letters += 8; // 8 letters in "thousand"
+        letters += 11; // 11 letters in "one thousand"
+    } else if(number >= 100) {
+        letters += digitToLetters(number/100) + 7 + 3; // Adds "one" or "two", "hundred", and "and"
     }
+    letters += tensToLetters(number % 100);
+
+    return letters;
 }
 
 int digitToLetters(int digit) {
