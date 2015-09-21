@@ -3,11 +3,12 @@
 using namespace std;
 
 int main() {
-    int maxChain = 0;
+    long int maxChain = 0;
+    long int maxStart = 0;
 
-    for(int i = 1; i < 1000000; i++) {
-        int chain = 0;
-        int n = i;
+    for(long int i = 1000000; i > 1; i--) {
+        long int chain = 1;
+        long int n = i;
 
         while(n > 1) {
             if(n % 2 == 0) {
@@ -21,8 +22,10 @@ int main() {
 
         if(chain > maxChain) {
             maxChain = chain;
+            maxStart = i;
         }
     }
 
-    cout << "Longest chain is " << maxChain << endl;
+    cout << "Longest chain starts from " << maxStart << endl;
+    cout << "Longest chain is length   " << maxChain << endl;
 }
