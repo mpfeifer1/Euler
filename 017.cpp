@@ -8,6 +8,8 @@ int tensToLetters(int number);
 
 int main() {
     int number = 5;
+    cout << "Enter a number: ";
+    cin >> number;
     cout << "Letters in " << number << ": " << tensToLetters(number) << endl;
 }
 
