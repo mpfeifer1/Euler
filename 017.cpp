@@ -52,6 +52,10 @@ int tensToLetters(int number) {
 
     count = 0;
 
+    if(number >= 20) { // If number isn't already accounted for, add 2nd digit
+        count += tensToLetters(number % 10);
+    }
+
     if(number >= 90) {
         count += 6;
     } else if(number >= 80) {
