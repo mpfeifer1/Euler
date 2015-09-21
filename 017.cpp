@@ -7,23 +7,29 @@ int digitToLetters(int digit);
 int tensToLetters(int number);
 
 int main() {
-    int number = 5;
-    cout << "Enter a number: ";
-    cin >> number;
-    cout << "Letters in " << number << ": " << countLetters(number) << endl;
+    int max = 1000;
+    int sum = 0;
+
+    for(int i = 1; i <= max; i++) {
+        sum += countLetters(i);
+    }
+    cout << "Sum of letters from 1 to " << max << " is " << sum << endl;
 }
 
-
-// Maxes out at 1000;
 int countLetters(int number) {
     int letters = 0;
 
     if(number == 1000) {
         letters += 11; // 11 letters in "one thousand"
     } else if(number >= 100) {
-        letters += digitToLetters(number/100) + 7 + 3; // Adds "one" or "two", "hundred", and "and"
+        letters += digitToLetters(number / 100) + 7; // Adds "one", "two", etc..., and "hundred"
+        if(number % 100 != 0) {
+            letters += 3; // Adds 3 if the digits after the hundred aren't 00
+        }
     }
-    letters += tensToLetters(number % 100);
+    letters += tensToLetters(number % 100); // Last Two Digits
+
+    cout << number << " has " << letters << " letters" << endl;
 
     return letters;
 }
@@ -54,7 +60,6 @@ int digitToLetters(int digit) {
 }
 
 int tensToLetters(int number) {
-
     int count = 0;
 
     if(number >= 20) { // If number isn't already accounted for, add 2nd digit
@@ -102,5 +107,4 @@ int tensToLetters(int number) {
     }
 
     return count;
-
 }
