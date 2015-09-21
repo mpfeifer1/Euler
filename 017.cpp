@@ -77,7 +77,7 @@ int tensToLetters(int number) {
     } else if(number >= 50) {
         count += 5;
     } else if(number >= 40) {
-        count += 6;
+        count += 5;
     } else if(number >= 30) {
         count += 6;
     } else if(number >= 20) {
