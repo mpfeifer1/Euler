@@ -29,8 +29,6 @@ int countLetters(int number) {
     }
     letters += tensToLetters(number % 100); // Last Two Digits
 
-    cout << number << " has " << letters << " letters" << endl;
-
     return letters;
 }
 
