@@ -25,6 +25,9 @@ int main() {
                               {20,73,35,29,78,31,90, 1,74,31,49,71,48,86,81,16,23,57, 5,54},
                               { 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48}};
 
+    cout << fixed;
+    setprecision(0);
+
     int grid_height = 20;
     int grid_width = 20;
     int search_length = 4;
@@ -59,8 +62,8 @@ int main() {
     cout << max_product << endl;
 
     // Check diagonally
-    for(int i = 0; i < grid-height - search_length; i++) {
-        for(int j = 0; j < grid-length - search_length; j++) {
+    for(int i = 0; i < grid_height - search_length; i++) {
+        for(int j = 0; j < grid_width - search_length; j++) {
             double product = grid[i][j] *
                              grid[i+1][j+1] *
                              grid[i+2][j+2] *
@@ -70,4 +73,19 @@ int main() {
             }
         }
     }
+
+    // Check other diagonal
+    for(int i = 0; i < grid_height - search_length; i++) {
+        for(int j = 0; j < grid_width - search_length; j++) {
+            double product = grid[i][j+3] *
+                             grid[i+1][j+2] *
+                             grid[i+2][j+1] *
+                             grid[i+3][j];
+            if(product > max_product) {
+                max_product = product;
+            }
+        }
+    }
+
+    cout << "Max product is " << max_product << endl;
 }
