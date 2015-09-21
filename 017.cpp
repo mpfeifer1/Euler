@@ -4,11 +4,11 @@ using namespace std;
 
 int countLetters(int number);
 int digitToLetters(int digit);
-int TenstoLetters(int number);
+int tenstoLetters(int number);
 
 int main() {
     int number = 5;
-    cout << "Letters in " << number << ": " << countLetters(number) << endl;
+    cout << "Letters in " << number << ": " << tensToLetters(number) << endl;
 }
 
 
@@ -50,10 +50,10 @@ int digitToLetters(int digit) {
 
 int tensToLetters(int number) {
 
-    count = 0;
+    int count = 0;
 
     if(number >= 20) { // If number isn't already accounted for, add 2nd digit
-        count += tensToLetters(number % 10);
+        count += digitToLetters(number % 10);
     }
 
     if(number >= 90) {
