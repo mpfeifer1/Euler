@@ -4,7 +4,7 @@ using namespace std;
 
 int countLetters(int number);
 int digitToLetters(int digit);
-int tenstoLetters(int number);
+int tensToLetters(int number);
 
 int main() {
     int number = 5;
