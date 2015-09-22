@@ -15,7 +15,8 @@ int main() {
 
     int index = 0; // Current spot in the string
 
-    isTriangle("Sky");
+    string word = "SKY";
+    cout << "Is " << word << " a triangle? " << isTriangle(word) << endl;
 }
 
 bool isTriangle(string word) {
