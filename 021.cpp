@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,10 +11,18 @@ int main() {
     int max = 1000;
 
     for(int i = 220; i < max; i++) { // Starts at 220, the first amicable number
-        if(findPair(i) > 0 && true) { // Change to "if i isn't in pairs"
-            
+        if(findPair(i) > 0 && ! find(pairs.begin(), pairs.end(), i)) { // If i has a pair, and isn't in the list
+            pairs.push_back(i);
+            pairs.push_back(findPair(i));
         }
     }
+
+    int sum = 0;
+    for(int i: pairs) {
+        sum += i;
+    }
+
+    cout << "Total is " << sum << endl;
 }
 
 int findPair(int number) {
