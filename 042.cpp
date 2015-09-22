@@ -28,7 +28,6 @@ int main() {
         }
 
         currentWord = wordList.substr(index, lengthToQuote); // Creates a word to process
-        cout << "Current word is " << currentWord << endl;
 
         if(isTriangle(currentWord)) { // Checks if triangle
             triangleWords++;
