@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool isTriangle(int index, int length);
+bool isTriangle(string word);
 int charToInt(char c);
 
 int main() {
@@ -18,12 +18,24 @@ int main() {
     // cout << word << endl; // Prints entire text file
 }
 
-bool isTriangle(int index, int length) {
-    string word = substr(index, length);
-    sum = 0;
+bool isTriangle(string word) {
+    cout << "Processing word " << word << endl;
+    wordValue = 0;
     for(int i = 0; i < length; i++) {
-        sum += charToInt((char)substr(
+        wordValue += charToInt((char)word.substr(i,1));
     }
+
+    int n = 1;
+    int currentTriangle = 1;
+    while(currentTriangle <= wordValue) {
+        currentTriangle = (1.0 / 2.0) * (n + 1);
+        cout << "Current triangle is " << currentTriangle << endl;
+        n++;
+        if(currentTriangle == wordValue) {
+            return true;
+        }
+    }
+    return false;
 }
 
 int charToInt(char c) {
