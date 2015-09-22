@@ -7,11 +7,11 @@ using namespace std;
 int findPair(int number);
 
 int main() {
-    vector<int> pairs;
-    int max = 1000;
+    vector<int> pairs = {0};
+    int max = 10000;
 
     for(int i = 220; i < max; i++) { // Starts at 220, the first amicable number
-        if(findPair(i) > 0 && ! find(pairs.begin(), pairs.end(), i)) { // If i has a pair, and isn't in the list
+        if(findPair(i) > 0 && findPair(i) != i && find(pairs.begin(), pairs.end(), i) == pairs.end() ) { // If i has a pair, doesn't equal itself, and isn't in the list
             pairs.push_back(i);
             pairs.push_back(findPair(i));
         }
