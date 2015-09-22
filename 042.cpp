@@ -14,9 +14,30 @@ int main() {
     getline(file, wordList);
 
     int index = 0; // Current spot in the string
+    int lengthToQuote = 0; // Distance until next (")
+    int triangleWords = 0;
+    string currentWord = "";
 
-    string word = "SKY";
-    cout << "Is " << word << " a triangle? " << isTriangle(word) << endl;
+    while(index < wordList.length()) {
+        while(wordList[index] != '"') {
+            index++;
+        }
+
+        lengthToQuote = 1;
+        while(wordList[index + lengthToQuote] != '"') {
+            lengthToQuote++;
+        }
+
+        currentWord = wordList.substr(index, lengthToQuote);
+
+        cout << "Current word is " << currentWord << endl;
+
+        if(isTriangle(currentWord)) {
+            triangleWords++;
+        }
+
+        index += currentWord.length();
+    }
 }
 
 bool isTriangle(string word) {
