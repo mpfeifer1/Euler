@@ -1,12 +1,19 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int findPair(int number);
 
 int main() {
-    int number = 284;
-    cout << number << "'s pair is " << findPair(number) << endl;
+    vector<int> pairs;
+    int max = 1000;
+
+    for(int i = 220; i < max; i++) { // Starts at 220, the first amicable number
+        if(findPair(i) > 0 && true) { // Change to "if i isn't in pairs"
+            
+        }
+    }
 }
 
 int findPair(int number) {
