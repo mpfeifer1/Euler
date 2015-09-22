@@ -29,7 +29,7 @@ bool isTriangle(string word) {
     int n = 1;
     int currentTriangle = 1;
     while(currentTriangle <= wordValue) {
-        currentTriangle = (1.0 / 2.0) * (n + 1);
+        currentTriangle = (1.0 / 2.0) * n * (n + 1);
         cout << "Current triangle is " << currentTriangle << endl;
         n++;
         if(currentTriangle == wordValue) {
