@@ -21,7 +21,7 @@ int main() {
 bool isTriangle(string word) {
     cout << "Processing word " << word << endl;
     int wordValue = 0;
-    for(int i = 0; i < strlen(word); i++) {
+    for(int i = 0; i < word.length(); i++) {
         wordValue += charToInt((char)word.substr(i,1));
     }
 
