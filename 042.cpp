@@ -19,29 +19,28 @@ int main() {
     string currentWord = "";
 
     while(index < wordList.length()) {
-        while(wordList[index] != '"') {
+        while(wordList[index] != '"' ) { // Loops until next (")
             index++;
         }
-
         lengthToQuote = 1;
-        while(wordList[index + lengthToQuote] != '"') {
+        while(wordList[index + lengthToQuote] != '"') { // Finds the following (")
             lengthToQuote++;
         }
 
-        currentWord = wordList.substr(index, lengthToQuote);
-
+        currentWord = wordList.substr(index, lengthToQuote); // Creates a word to process
         cout << "Current word is " << currentWord << endl;
 
-        if(isTriangle(currentWord)) {
+        if(isTriangle(currentWord)) { // Checks if triangle
             triangleWords++;
         }
 
-        index += currentWord.length();
+        index += currentWord.length() + 1; // Moves index forward length of word (+2 to account for the ,")
     }
+
+    cout << "File has " << triangleWords << " triangle words" << endl;
 }
 
 bool isTriangle(string word) {
-    cout << "Processing word " << word << endl;
     int wordValue = 0;
     for(int i = 0; i < word.length(); i++) {
         char temp = word[i];
@@ -52,7 +51,6 @@ bool isTriangle(string word) {
     int currentTriangle = 1;
     while(currentTriangle <= wordValue) {
         currentTriangle = (1.0 / 2.0) * n * (n + 1);
-        cout << "Current triangle is " << currentTriangle << endl;
         n++;
         if(currentTriangle == wordValue) {
             return true;
@@ -142,6 +140,6 @@ int charToInt(char c) {
         case 'z':
             return 26;
         default:
-            return -1; // Just in case of error
+            return 0; // Just in case of error
     }
 }
