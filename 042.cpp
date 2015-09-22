@@ -20,8 +20,8 @@ int main() {
 
 bool isTriangle(string word) {
     cout << "Processing word " << word << endl;
-    wordValue = 0;
-    for(int i = 0; i < length; i++) {
+    int wordValue = 0;
+    for(int i = 0; i < strlen(word); i++) {
         wordValue += charToInt((char)word.substr(i,1));
     }
 
@@ -40,57 +40,57 @@ bool isTriangle(string word) {
 
 int charToInt(char c) {
     switch(c) {
-        case a:
+        case 'a':
             return 1;
-        case b:
+        case 'b':
             return 2;
-        case c:
+        case 'c':
             return 3;
-        case d:
+        case 'd':
             return 4;
-        case e:
+        case 'e':
             return 5;
-        case f:
+        case 'f':
             return 6;
-        case g:
+        case 'g':
             return 7;
-        case h:
+        case 'h':
             return 8;
-        case i:
+        case 'i':
             return 9;
-        case j:
+        case 'j':
             return 10;
-        case k:
+        case 'k':
             return 11;
-        case l:
+        case 'l':
             return 12;
-        case m:
+        case 'm':
             return 13;
-        case n:
+        case 'n':
             return 14;
-        case o:
+        case 'o':
             return 15;
-        case p:
+        case 'p':
             return 16;
-        case q:
+        case 'q':
             return 17;
-        case r:
+        case 'r':
             return 18;
-        case s:
+        case 's':
             return 19;
-        case t:
+        case 't':
             return 20;
-        case u:
+        case 'u':
             return 21;
-        case v:
+        case 'v':
             return 22;
-        case w:
+        case 'w':
             return 23;
-        case x:
+        case 'x':
             return 24;
-        case y:
+        case 'y':
             return 25;
-        case z:
+        case 'z':
             return 26;
         default:
             return -1; // Just in case of error
