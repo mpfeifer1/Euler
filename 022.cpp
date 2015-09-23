@@ -1,12 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
+bool isSorted(vector<string> arr);
+vector<string> sort(vector<string> arr);
+
 int main() {
     ifstream file("sources/042.txt");
-    string names[5000]; // Array of names
+    vector<string> names(5000); // Array of names
     string nameList; // String of names (copy of text file)
     getline(file, nameList); // copies names to namelist
 
@@ -24,8 +28,29 @@ int main() {
         }
 
         currentWord = nameList.substr(index + 1, lengthToQuote - 1);
-        cout << currentWord << endl;
-
         index += currentWord.length() + 2;
     }
+
+    sort(names);
+
+    for(int i = 0; i < 5000; i++) {
+        cout << names[i] << endl;
+    }
+}
+
+bool isSorted(vector<string> arr) {
+    return false;
+}
+
+vector<string> sort(vector<string> arr) {
+    while(!isSorted(arr) {
+        int index = 0;
+        if(arr[index].at(0) > arr[index + 1].at(0)) {
+            string tmp = arr[index];
+            
+            
+        }
+        index++
+    }
+    return arr;
 }
