@@ -23,9 +23,9 @@ int main() {
             lengthToQuote++;
         }
 
-        currentWord = nameList.substr(index, lengthToQuote);
+        currentWord = nameList.substr(index + 1, lengthToQuote - 1);
         cout << currentWord << endl;
 
-        index += currentWord.length() + 1;
+        index += currentWord.length() + 2;
     }
 }
