@@ -43,14 +43,12 @@ bool isSorted(vector<string> arr) {
 }
 
 vector<string> sort(vector<string> arr) {
-    while(!isSorted(arr) {
+    while(!isSorted(arr)) {
         int index = 0;
         if(arr[index].at(0) > arr[index + 1].at(0)) {
-            string tmp = arr[index];
-            
-            
+            swap(arr[index].at(0), arr[index+1].at(0));
         }
-        index++
+        index++;
     }
     return arr;
 }
