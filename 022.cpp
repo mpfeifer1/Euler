@@ -45,8 +45,9 @@ bool isSorted(vector<string> arr) {
 vector<string> sort(vector<string> arr) {
     while(!isSorted(arr)) {
         int index = 0;
-        if(arr[index].at(0) > arr[index + 1].at(0)) {
-            swap(arr[index].at(0), arr[index+1].at(0));
+        cout << "Item being sorted: " << arr[index] << endl;
+        if(arr[index] > arr[index + 1]) {
+            swap(arr[index], arr[index+1]);
         }
         index++;
     }
