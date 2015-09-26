@@ -40,7 +40,7 @@ int rotate(int number) { // Moves the last digit to the first spot
 
 bool isPrime(int number) {
     bool prime = true;
-    for(int i = 3; i < sqrt(number) + 1; i++) {
+    for(int i = 2; i < sqrt(number) + 1; i++) {
         if(number % i == 0) {
             prime = false;
         }
