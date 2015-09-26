@@ -7,11 +7,10 @@ int rotate(int number);
 bool isPrime(int number);
 
 int main() {
-    cout << rotate(970) << endl;
-    /*
-    int max = 1000;
-    for(int i = 2; i < max; i++) {
-        cout << "I is " << i << endl;
+    int max = 100;
+    int sum = 1; // Starts at 1 to include 2, which is skipped by this method
+    for(int i = 3; i < max; i += 2) { // Skips every other because no even number is prime
+        //cout << "I is " << i << endl;
         bool prime = true;
         int j;
         int count;
@@ -22,9 +21,10 @@ int main() {
         }
         if(prime) {
             cout << j << " is prime" << endl;
+            sum++;
         }
     }
-    */
+    cout << "Sum is " << sum << endl;
 }
 
 int rotate(int number) { // Moves the last digit to the first spot
