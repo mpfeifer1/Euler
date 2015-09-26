@@ -7,9 +7,11 @@ int rotate(int number);
 bool isPrime(int number);
 
 int main() {
+    cout << rotate(970) << endl;
+    /*
     int max = 1000;
     for(int i = 2; i < max; i++) {
-        //cout << "I is " << i << endl;
+        cout << "I is " << i << endl;
         bool prime = true;
         int j;
         int count;
@@ -22,6 +24,7 @@ int main() {
             cout << j << " is prime" << endl;
         }
     }
+    */
 }
 
 int rotate(int number) { // Moves the last digit to the first spot
