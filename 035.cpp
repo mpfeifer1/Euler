@@ -9,10 +9,17 @@ bool isPrime(int number);
 int main() {
     int max = 1000;
     for(int i = 2; i < max; i++) {
-        cout << "I is " << i << endl;
-        for(int j = i, count = i; count > 0; count /= 10) {
+        //cout << "I is " << i << endl;
+        bool prime = true;
+        int j;
+        int count;
+        for(j = i, count = i; count > 0; count /= 10) {
             j = rotate(j);
-            cout << "J is " << j << endl;
+            prime = prime && isPrime(j);
+            //cout << "J is " << prime << " prime" << endl;
+        }
+        if(prime) {
+            cout << j << " is prime" << endl;
         }
     }
 }
@@ -29,5 +36,11 @@ int rotate(int number) { // Moves the last digit to the first spot
 }
 
 bool isPrime(int number) {
-    return false;
+    bool prime = true;
+    for(int i = 3; i < sqrt(number) + 1; i++) {
+        if(number % i == 0) {
+            prime = false;
+        }
+    }
+    return prime;
 }
