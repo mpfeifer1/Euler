@@ -10,7 +10,7 @@ int main() {
     int max = 1000;
     for(int i = 2; i < max; i++) {
         cout << "I is " << i << endl;
-        for(int j = i; j > 0; j /= 10) {
+        for(int j = i, count = i; count > 0; count /= 10) {
             j = rotate(j);
             cout << "J is " << j << endl;
         }
