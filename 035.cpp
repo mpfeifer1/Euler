@@ -7,7 +7,7 @@ int rotate(int number);
 bool isPrime(int number);
 
 int main() {
-    int max = 100;
+    int max = 1000000;
     int sum = 1; // Starts at 1 to include 2, which is skipped by this method
     for(int i = 3; i < max; i += 2) { // Skips every other because no even number is prime
         //cout << "I is " << i << endl;
