@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -6,7 +7,7 @@ bool contains4680(int number);
 bool isPrime(int number);
 bool leftTrunc(int number);
 bool rightTrunc(int number);
-int getFirstDigit(int number);
+int removeFirst(int number);
 
 int main() {
     int sum = 0;
@@ -55,16 +56,24 @@ bool isPrime(int number) {
 }
 
 bool leftTrunc(int number) {
-    prime = true;
-    for(int i = number; i > 0; i ) {
+    bool prime = true;
+    for(int i = number; i > 0; removeFirst(i)) {
         prime = prime && isPrime(i);
     }
 }
 
 bool rightTrunc(int number) {
-    int prime = true;
+    bool prime = true;
     for(int i = number; i > 0; i /= 10) {
         prime = prime && isPrime(i);
     }
     return prime;
+}
+
+int removeFirst(int number) {
+    int count = 0;
+    while (count * 10 < number) {
+        count++;
+    }
+    return number % count;
 }
