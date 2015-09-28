@@ -7,11 +7,10 @@ bool contains4680(int number);
 bool isPrime(int number);
 bool leftTrunc(int number);
 bool rightTrunc(int number);
-int removeFirst(int number);
 
 int main() {
     int sum = 0;
-    for(int i = 9, truncPrimes = 0; truncPrimes < 11; i += 2) { // Starts at 9 because 2-7 aren't truncatable primes, counts until it's found all truncatable primes, counts by 2 to skip even numbers
+    for(int i = 999, truncPrimes = 0; truncPrimes < 11 && i < 100000000; i += 2) { // Starts at 999 for 3-digit nums, counts until all trunc primes found, counts by 2 to skip even numbers
         if(!contains4680(i)) {
             if(leftTrunc(i) && rightTrunc(i)) {
                 cout << i << " is a truncatable prime" << endl;
@@ -21,59 +20,50 @@ int main() {
         }
     }
     cout << "Sum is " << sum << endl;
+    return 0;
 }
 
 bool contains4680(int number) {
-    bool contains = false;
     for(int i = number; i > 0; i /= 10) {
         int digit = i % 10;
         switch(i) {
             case 0:
-                contains = true;
-                break;
+                return true;
             case 4:
-                contains = true;
-                break;
+                return true;
             case 6:
-                contains = true;
-                break;
+                return true;
             case 8:
-                contains = true;
-                break;
+                return true;
         }
     }
-    return contains;
+    return false;
 }
 
 bool isPrime(int number) {
-    int prime = true;
     for(int i = 2; i < sqrt(number) + 1; i++) {
-        if(number % i == 0) {
-            prime = false;
+        if(number % i == 0 && i != number) {
+            return false;
         }
     }
-    return prime;
+    return true;
 }
 
 bool leftTrunc(int number) {
-    bool prime = true;
-    for(int i = number; i > 0; removeFirst(i)) {
-        prime = prime && isPrime(i);
+    for(int i = 10; i < number; i *= 10) {
+        if(!isPrime(number % i)) {
+            return false;
+        }
     }
+    return true;
 }
 
 bool rightTrunc(int number) {
-    bool prime = true;
     for(int i = number; i > 0; i /= 10) {
-        prime = prime && isPrime(i);
+            if(!isPrime(i)) {
+            return false;
+        }
     }
-    return prime;
+    return true;
 }
 
-int removeFirst(int number) {
-    int count = 0;
-    while (count * 10 < number) {
-        count++;
-    }
-    return number % count;
-}
