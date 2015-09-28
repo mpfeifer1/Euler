@@ -2,21 +2,21 @@
 
 using namespace std;
 
-int getTriangle(int index);
-int getPentagon(int index);
-int getHexagon(int index);
+long int getTriangle(long int index);
+long int getPentagon(long int index);
+long int getHexagon(long int index);
 
 int main() {
     bool found = false;
 
-    int triIndex = 286;
-    int pentIndex = 166;
-    int hexIndex = 145;
+    long int triIndex = 286;
+    long int pentIndex = 166;
+    long int hexIndex = 145;
 
     do {
-        int triangle = getTriangle(triIndex);
-        int pentagon = getPentagon(pentIndex);
-        int hexagon = getHexagon(hexIndex);
+        long int triangle = getTriangle(triIndex);
+        long int pentagon = getPentagon(pentIndex);
+        long int hexagon = getHexagon(hexIndex);
 
         cout << "Hex is " << hexagon << endl;
         cout << "Pent is " << pentagon << endl;
@@ -41,14 +41,14 @@ int main() {
     } while(!found);
 }
 
-int getTriangle(int index) {
+long int getTriangle(long int index) {
     return index * (index + 1) / 2;
 }
 
-int getPentagon(int index) {
+long int getPentagon(long int index) {
     return index * (3 * index - 1) / 2;
 }
 
-int getHexagon(int index) {
+long int getHexagon(long int index) {
     return index * (2 * index - 1);
 }
