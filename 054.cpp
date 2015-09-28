@@ -20,12 +20,15 @@ int highestCard();
 int main() {
     int oneWins = 0;
     int numberOfHands = 5;
+
     ifstream file("sources/054.txt");
     string input;
+
     string oneHand[5];
     string twoHand[5];
 
     for(int i = 0; i < numberOfHands; i++) { // Calculates every hand
+
         getline(file, input);
         for(int j = 0; j < 5; j++) { // Put the first 5 cards into the hand
             
