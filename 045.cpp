@@ -18,11 +18,6 @@ int main() {
         long int pentagon = getPentagon(pentIndex);
         long int hexagon = getHexagon(hexIndex);
 
-        cout << "Hex is " << hexagon << endl;
-        cout << "Pent is " << pentagon << endl;
-        cout << "Tri is " << triangle << endl;
-        cout << endl;
-
         if(triangle == pentagon && pentagon == hexagon && triangle == hexagon) {
             cout << "Tri-Pent-Hex number is " << getTriangle(triIndex) << endl;
             found = true;
