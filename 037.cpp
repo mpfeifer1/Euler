@@ -10,7 +10,7 @@ bool rightTrunc(int number);
 
 int main() {
     int sum = 0;
-    for(int i = 999, truncPrimes = 0; truncPrimes < 11 && i < 100000000; i += 2) { // Starts at 999 for 3-digit nums, counts until all trunc primes found, counts by 2 to skip even numbers
+    for(int i = 9, truncPrimes = 0; truncPrimes < 11 && i < 100000000; i += 2) { // Starts at 999 for 3-digit nums, counts until all trunc primes found, counts by 2 to skip even numbers
         if(!contains4680(i)) {
             if(leftTrunc(i) && rightTrunc(i)) {
                 cout << i << " is a truncatable prime" << endl;
@@ -41,6 +41,9 @@ bool contains4680(int number) {
 }
 
 bool isPrime(int number) {
+    if(number == 1) {
+        return false;
+    }
     for(int i = 2; i < sqrt(number) + 1; i++) {
         if(number % i == 0 && i != number) {
             return false;
