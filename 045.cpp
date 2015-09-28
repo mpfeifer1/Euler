@@ -9,9 +9,9 @@ int getHexagon(int index);
 int main() {
     bool found = false;
 
-    int triIndex = 284;
-    int pentIndex = 164;
-    int hexIndex = 143;
+    int triIndex = 286;
+    int pentIndex = 166;
+    int hexIndex = 145;
 
     do {
         int triangle = getTriangle(triIndex);
@@ -28,11 +28,11 @@ int main() {
             found = true;
         }
 
-        if(triangle < pentagon && triangle < hexagon) {
+        if(triangle < pentagon || triangle < hexagon) {
             triIndex++;
-        } else if(pentagon < triangle && pentagon < hexagon) {
+        } else if(pentagon < triangle || pentagon < hexagon) {
             pentIndex++;
-        } else if(hexagon < triangle && hexagon < pentagon) {
+        } else if(hexagon < triangle || hexagon < pentagon) {
             hexIndex++;
         } else {
             cout << "All numbers are equal" << endl;
