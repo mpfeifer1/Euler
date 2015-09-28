@@ -2,12 +2,13 @@
 
 using namespace std;
 
-int getTraingle(int index);
+int getTriangle(int index);
 int getPentagon(int index);
 int getHexagon(int index);
 
 int main() {
     bool found = false;
+
     int triIndex = 284;
     int pentIndex = 164;
     int hexIndex = 143;
@@ -34,7 +35,7 @@ int main() {
         } else if(hexagon < triangle && hexagon < pentagon) {
             hexIndex++;
         } else {
-            cout << "Uh, something went wrong" << endl;
+            cout << "All numbers are equal" << endl;
         }
 
     } while(!found);
