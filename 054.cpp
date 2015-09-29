@@ -24,14 +24,17 @@ int main() {
     ifstream file("sources/054.txt");
     string input;
 
-    string oneHand[5];
-    string twoHand[5];
+    string handTwo;
+    string handOne;
 
     for(int i = 0; i < numberOfHands; i++) { // Calculates every hand
 
         getline(file, input);
+        input = remove_if(input.begin(), input.end(), ' ');
+
+        cout << input << endl;
         for(int j = 0; j < 5; j++) { // Put the first 5 cards into the hand
-            
+            //handOne = substr(input, 
         }
         for(int j = 0; j < 5; j++) { // Put the last 5 cards into the other hand
             
