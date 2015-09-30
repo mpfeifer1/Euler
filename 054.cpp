@@ -47,6 +47,10 @@ int main() {
     cout << "Player 1 won " << oneWins << " times" << endl;
 }
 
+int hasRoyalFlush(string hand) {
+    return hasFlush(hand) && hasStraight(hand);
+}
+
 int hasFlush(string hand) {
     if(count(hand.begin(), hand.end(), 'H') == 5 ||
        count(hand.begin(), hand.end(), 'C') == 5 ||
