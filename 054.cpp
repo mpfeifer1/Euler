@@ -47,9 +47,14 @@ int main() {
     cout << "Player 1 won " << oneWins << " times" << endl;
 }
 
-//int hasRoyalFlush(string hand) {
-//    return hasFlush(hand) && hasStraight(hand);
-//}
+int hasRoyalFlush(string hand) {
+    return hasFlush(hand) &&
+           hand.find("A") != string::npos &&
+           hand.find("K") != string::npos &&
+           hand.find("Q") != string::npos &&
+           hand.find("J") != string::npos &&
+           hand.find("T") != string::npos &&
+}
 
 int hasFlush(string hand) {
     if(count(hand.begin(), hand.end(), 'H') == 5 ||
@@ -122,6 +127,9 @@ int hasPair(string hand) {
     return -1;
 }
 
+int hasTwoPairs(string hand) {
+
+}
 
 int highestCard(string hand) {
 
