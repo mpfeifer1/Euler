@@ -15,12 +15,12 @@ int hasFlush         (string hand);
 int hasStraight      (string hand);
 int hasThreeOfAKind  (string hand);
 int hasTwoPairs      (string hand);
-int hasOnePair       (string hand);
+int hasPair          (string hand);
 int highestCard      (string hand);
 
 int main() {
     int oneWins = 0;
-    int numberOfHands = 50;
+    int numberOfHands = 10;
 
     ifstream file("sources/054.txt");
     string input;
@@ -37,7 +37,7 @@ int main() {
         handTwo = input.substr(10,10);
 
         cout << handOne << endl;
-        cout << hasThreeOfAKind(handOne) << endl;
+        cout << hasPair(handOne) << endl;
 
         //if(betterHand(handOne)) {
         //    oneWins++;
@@ -59,6 +59,10 @@ int hasFlush(string hand) {
         return highestCard(hand);
     }
     return -1;
+}
+
+int hasFullHouse(string hand) {
+    return hasPair(hand) && hasThreeOfAKind(hand);
 }
 
 int hasFourOfAKind(string hand) {
@@ -98,6 +102,26 @@ int hasThreeOfAKind(string hand) {
     }
     return -1;
 }
+
+int hasPair(string hand) {
+    if(count(hand.begin(), hand.end(), 'A') == 2 ||
+       count(hand.begin(), hand.end(), '2') == 2 ||
+       count(hand.begin(), hand.end(), '3') == 2 ||
+       count(hand.begin(), hand.end(), '4') == 2 ||
+       count(hand.begin(), hand.end(), '5') == 2 ||
+       count(hand.begin(), hand.end(), '6') == 2 ||
+       count(hand.begin(), hand.end(), '7') == 2 ||
+       count(hand.begin(), hand.end(), '8') == 2 ||
+       count(hand.begin(), hand.end(), '9') == 2 ||
+       count(hand.begin(), hand.end(), 'T') == 2 ||
+       count(hand.begin(), hand.end(), 'K') == 2 ||
+       count(hand.begin(), hand.end(), 'Q') == 2 ||
+       count(hand.begin(), hand.end(), 'J') == 2) {
+        return highestCard(hand);
+    }
+    return -1;
+}
+
 
 int highestCard(string hand) {
 
