@@ -140,7 +140,9 @@ int hasPair(string hand) {
 }
 
 int hasTwoPairs(string hand) {
-
+    if(hasPair(hand) > 0) {
+        
+    }
 }
 
 int hasStraight(string hand) {
@@ -159,7 +161,9 @@ int hasStraight(string hand) {
 
 int highestCard(string hand) {
 
-    if(hand.find("K") != string::npos) {
+    if(hand.find("A") != string::npos) {
+        return 1;
+    } else if(hand.find("K") != string::npos) {
         return 13;
     } else if(hand.find("Q") != string::npos) {
         return 12;
@@ -183,8 +187,6 @@ int highestCard(string hand) {
         return 3;
     } else if(hand.find("2") != string::npos) {
         return 2;
-    } else if(hand.find("A") != string::npos) {
-        return 1;
     } else {
         cout << "Highest number can't find a valid nunber" << endl;
     }
