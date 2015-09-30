@@ -131,6 +131,12 @@ int hasTwoPairs(string hand) {
 
 }
 
+int hasStraight(string hand) {
+    for(int i = 0; i < 5; i++) {
+        
+    }
+}
+
 int highestCard(string hand) {
 
     if(hand.find("K") != string::npos) {
