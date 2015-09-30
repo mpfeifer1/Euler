@@ -37,7 +37,7 @@ int main() {
         handTwo = input.substr(10,10);
 
         cout << handOne << endl;
-        cout << hasFlush(handOne) << endl;
+        cout << hasThreeOfAKind(handOne) << endl;
 
         //if(betterHand(handOne)) {
         //    oneWins++;
@@ -47,15 +47,53 @@ int main() {
     cout << "Player 1 won " << oneWins << " times" << endl;
 }
 
-int hasRoyalFlush(string hand) {
-    return hasFlush(hand) && hasStraight(hand);
-}
+//int hasRoyalFlush(string hand) {
+//    return hasFlush(hand) && hasStraight(hand);
+//}
 
 int hasFlush(string hand) {
     if(count(hand.begin(), hand.end(), 'H') == 5 ||
        count(hand.begin(), hand.end(), 'C') == 5 ||
        count(hand.begin(), hand.end(), 'D') == 5 ||
        count(hand.begin(), hand.end(), 'S') == 5) {
+        return highestCard(hand);
+    }
+    return -1;
+}
+
+int hasFourOfAKind(string hand) {
+    if(count(hand.begin(), hand.end(), 'A') == 4 ||
+       count(hand.begin(), hand.end(), '2') == 4 ||
+       count(hand.begin(), hand.end(), '3') == 4 ||
+       count(hand.begin(), hand.end(), '4') == 4 ||
+       count(hand.begin(), hand.end(), '5') == 4 ||
+       count(hand.begin(), hand.end(), '6') == 4 ||
+       count(hand.begin(), hand.end(), '7') == 4 ||
+       count(hand.begin(), hand.end(), '8') == 4 ||
+       count(hand.begin(), hand.end(), '9') == 4 ||
+       count(hand.begin(), hand.end(), 'T') == 4 ||
+       count(hand.begin(), hand.end(), 'K') == 4 ||
+       count(hand.begin(), hand.end(), 'Q') == 4 ||
+       count(hand.begin(), hand.end(), 'J') == 4) {
+        return highestCard(hand);
+    }
+    return -1;
+}
+
+int hasThreeOfAKind(string hand) {
+    if(count(hand.begin(), hand.end(), 'A') == 3 ||
+       count(hand.begin(), hand.end(), '2') == 3 ||
+       count(hand.begin(), hand.end(), '3') == 3 ||
+       count(hand.begin(), hand.end(), '4') == 3 ||
+       count(hand.begin(), hand.end(), '5') == 3 ||
+       count(hand.begin(), hand.end(), '6') == 3 ||
+       count(hand.begin(), hand.end(), '7') == 3 ||
+       count(hand.begin(), hand.end(), '8') == 3 ||
+       count(hand.begin(), hand.end(), '9') == 3 ||
+       count(hand.begin(), hand.end(), 'T') == 3 ||
+       count(hand.begin(), hand.end(), 'K') == 3 ||
+       count(hand.begin(), hand.end(), 'Q') == 3 ||
+       count(hand.begin(), hand.end(), 'J') == 3) {
         return highestCard(hand);
     }
     return -1;
