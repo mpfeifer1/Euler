@@ -20,7 +20,7 @@ int highestCard      (string hand);
 
 int main() {
     int oneWins = 0;
-    int numberOfHands = 5;
+    int numberOfHands = 50;
 
     ifstream file("sources/054.txt");
     string input;
@@ -48,8 +48,10 @@ int main() {
 }
 
 int hasFlush(string hand) {
-    if(hand.find("H") == 5 || hand.find("C") == 5 ||
-       hand.find("D") == 5 || hand.find("S") == 5) {
+    if(count(hand.begin(), hand.end(), 'H') == 5 ||
+       count(hand.begin(), hand.end(), 'C') == 5 ||
+       count(hand.begin(), hand.end(), 'D') == 5 ||
+       count(hand.begin(), hand.end(), 'S') == 5) {
         return highestCard(hand);
     }
     return -1;
