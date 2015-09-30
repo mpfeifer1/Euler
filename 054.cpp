@@ -6,6 +6,7 @@
 using namespace std;
 
 bool betterHand(string handOne, string handTwo); // Returns true if first is better, false if second is better
+string toCardNotation(int num);
 
 int hasRoyalFlush    (string hand); // All methods return -1 if they don't have it
 int hasStraightFlush (string hand); // Otherwise, they return the highest card in it
@@ -56,6 +57,13 @@ int hasRoyalFlush(string hand) {
            hand.find("T") != string::npos &&
 }
 
+int hasStraightFlush(string hand) {
+    if(hasFlush(hand) && hasStraight(hand)) {
+        return highestCard(hand);
+    }
+    return -1;
+}
+
 int hasFlush(string hand) {
     if(count(hand.begin(), hand.end(), 'H') == 5 ||
        count(hand.begin(), hand.end(), 'C') == 5 ||
@@ -67,7 +75,10 @@ int hasFlush(string hand) {
 }
 
 int hasFullHouse(string hand) {
-    return hasPair(hand) && hasThreeOfAKind(hand);
+    if(hasPair(hand) && hasThreeOfAKind(hand)) {
+        return highestCard(hand);
+    }
+    return -1;
 }
 
 int hasFourOfAKind(string hand) {
@@ -132,9 +143,17 @@ int hasTwoPairs(string hand) {
 }
 
 int hasStraight(string hand) {
-    for(int i = 0; i < 5; i++) {
-        
+    int highest = highestCard(hand);
+    bool hasStraight = true;
+    for(int i = 1; i < 5; i++) {
+        if(!(hand.find(toCardNotation(highest - i)) != string::npos)) {
+            hasStraight = false;
+        }
     }
+    if(hasStraight) {
+        return highest;
+    }
+    return -1;
 }
 
 int highestCard(string hand) {
@@ -170,4 +189,20 @@ int highestCard(string hand) {
     }
 
     return -1;
+}
+
+string toCardNotation(int num) {
+    switch(num) {
+        case 13:
+            return "K";
+        case 12:
+            return "Q";
+        case 11:
+            return "J";
+        case 10:
+            return "T";
+        case 1:
+            return "A";
+    }
+    return num;
 }
