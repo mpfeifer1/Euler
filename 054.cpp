@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 
@@ -49,16 +50,16 @@ int main() {
 }
 
 int hasRoyalFlush(string hand) {
-    return hasFlush(hand) &&
+    return hasFlush(hand) > 0 &&
            hand.find("A") != string::npos &&
            hand.find("K") != string::npos &&
            hand.find("Q") != string::npos &&
            hand.find("J") != string::npos &&
-           hand.find("T") != string::npos &&
+           hand.find("T") != string::npos;
 }
 
 int hasStraightFlush(string hand) {
-    if(hasFlush(hand) && hasStraight(hand)) {
+    if(hasFlush(hand) > 0 && hasStraight(hand) > 0) {
         return highestCard(hand);
     }
     return -1;
@@ -75,7 +76,7 @@ int hasFlush(string hand) {
 }
 
 int hasFullHouse(string hand) {
-    if(hasPair(hand) && hasThreeOfAKind(hand)) {
+    if(hasPair(hand) > 0 && hasThreeOfAKind(hand) > 0) {
         return highestCard(hand);
     }
     return -1;
@@ -204,5 +205,5 @@ string toCardNotation(int num) {
         case 1:
             return "A";
     }
-    return num;
+    return std::to_string(num);
 }
