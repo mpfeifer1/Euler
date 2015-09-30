@@ -146,7 +146,7 @@ int hasTwoPairs(string hand) {
 }
 
 int hasStraight(string hand) {
-    int highest = highestCard(hand);
+    int highest = highestValue(hand);
     bool hasStraight = true;
     for(int i = 1; i < 5; i++) {
         if(!(hand.find(toCardNotation(highest - i)) != string::npos)) {
@@ -187,6 +187,41 @@ int highestCard(string hand) {
         return 3;
     } else if(hand.find("2") != string::npos) {
         return 2;
+    } else {
+        cout << "Highest number can't find a valid nunber" << endl;
+    }
+
+    return -1;
+}
+
+int highestValue(string hand) {
+
+    if(hand.find("K") != string::npos) {
+        return 13;
+    } else if(hand.find("Q") != string::npos) {
+        return 12;
+    } else if(hand.find("J") != string::npos) {
+        return 11;
+    } else if(hand.find("T") != string::npos) {
+        return 10;
+    } else if(hand.find("9") != string::npos) {
+        return 9;
+    } else if(hand.find("8") != string::npos) {
+        return 8;
+    } else if(hand.find("7") != string::npos) {
+        return 7;
+    } else if(hand.find("6") != string::npos) {
+        return 6;
+    } else if(hand.find("5") != string::npos) {
+        return 5;
+    } else if(hand.find("4") != string::npos) {
+        return 4;
+    } else if(hand.find("3") != string::npos) {
+        return 3;
+    } else if(hand.find("2") != string::npos) {
+        return 2;
+    } else if(hand.find("A") != string::npos) {
+        return 1;
     } else {
         cout << "Highest number can't find a valid nunber" << endl;
     }
