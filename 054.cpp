@@ -70,7 +70,7 @@ bool betterHand(string handOne, string handTwo) {
     }
     if(hasFlush(handOne) > 0 || hasFlush(handTwo) > 0) {
         return hasFlush(handOne) > hasFlush(handTwo);
-    }
+    } // TODO find 2nd highest card, etc...
     if(hasStraight(handOne) > 0 || hasStraight(handTwo) > 0) {
         return hasStraight(handOne) > hasStraight(handTwo);
     }
@@ -79,11 +79,12 @@ bool betterHand(string handOne, string handTwo) {
     }
     if(hasTwoPairs(handOne) > 0 || hasTwoPairs(handTwo) > 0) {
         return hasTwoPairs(handOne) > hasTwoPairs(handTwo);
-    }
+    } // Detect highest pair, second highest pair, then leftover high card
     if(hasPair(handOne) > 0 ||  hasPair(handTwo) > 0) {
         return hasPair(handOne) > hasPair(handTwo);
-    }
+    } // Detect higher pair, then leftover of highest cards
     return highestCard(handOne) > highestCard(handTwo);
+      // if those are tied, detect 2nd, 3rd, 4th, and 5th
 }
 
 int hasRoyalFlush(string hand) {
