@@ -25,7 +25,7 @@ int highestValue     (string hand);
 
 int main() {
     int oneWins = 0;
-    int numberOfHands = 1000;
+    int numberOfHands = 10;
 
     ifstream file("sources/054.txt");
     string input;
@@ -50,6 +50,8 @@ int main() {
         } else {
             cout << "Player Two Wins" << endl;
         }
+
+        cout << endl;
     }
 
     cout << "Player 1 won " << oneWins << " times" << endl;
@@ -57,35 +59,45 @@ int main() {
 
 bool betterHand(string handOne, string handTwo) {
     if(hasRoyalFlush(handOne) > 0 || hasRoyalFlush(handTwo) > 0) {
+        cout << "Someone has a royal flush" << endl;
         return hasRoyalFlush(handOne) > hasRoyalFlush(handTwo);
     }
     if(hasStraightFlush(handOne) > 0 || hasStraightFlush(handTwo) > 0) {
+        cout << "Someone has a straight flush" << endl;
         return hasStraightFlush(handOne) > hasStraightFlush(handTwo);
     }
     if(hasFourOfAKind(handOne) > 0 || hasFourOfAKind(handTwo) > 0) {
+        cout << "Someone has four of a kind" << endl;
         return hasFourOfAKind(handOne) > hasFourOfAKind(handTwo);
     }
     if(hasFullHouse(handOne) > 0 || hasFullHouse(handTwo) > 0) {
+        cout << "Someone has a full house" << endl;
         return hasFullHouse(handOne) > hasFullHouse(handTwo);
     }
     if(hasFlush(handOne) > 0 || hasFlush(handTwo) > 0) {
+        cout << "Someone has a flush" << endl;
         if(hasFlush(handOne) == hasFlush(handTwo)) {
             // Find 2nd, 3rd, 4th, 5th
         }
         return hasFlush(handOne) > hasFlush(handTwo);
     }
     if(hasStraight(handOne) > 0 || hasStraight(handTwo) > 0) {
+        cout << "Someone has a straight" << endl;
         return hasStraight(handOne) > hasStraight(handTwo);
     }
     if(hasThreeOfAKind(handOne) > 0 || hasThreeOfAKind(handTwo) > 0) {
+        cout << "Someone has three of a kind" << endl;
         return hasThreeOfAKind(handOne) > hasThreeOfAKind(handTwo);
     }
     if(hasTwoPairs(handOne) > 0 || hasTwoPairs(handTwo) > 0) {
+        cout << "Someone has two pairs" << endl;
         return hasTwoPairs(handOne) > hasTwoPairs(handTwo);
     } // Detect highest pair, second highest pair, then leftover high card
     if(hasPair(handOne) > 0 ||  hasPair(handTwo) > 0) {
+        cout << "Someone has a pair" << endl;
         return hasPair(handOne) > hasPair(handTwo);
     } // Detect higher pair, then leftover of highest cards
+    cout << "Only high cards" << endl;
     return highestCard(handOne) > highestCard(handTwo);
       // if those are tied, detect 2nd, 3rd, 4th, and 5th
 }
