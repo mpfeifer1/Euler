@@ -16,5 +16,6 @@ int pentagon(int number) {
 }
 
 bool isPentagon(int number) {
-    return 
+    double root = sqrt(1 + 24 * n);
+    return (root == int(root) && root % 6 == 5);
 }
