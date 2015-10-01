@@ -25,7 +25,7 @@ int highestValue     (string hand);
 
 int main() {
     int oneWins = 0;
-    int numberOfHands = 10;
+    int numberOfHands = 1000;
 
     ifstream file("sources/054.txt");
     string input;
