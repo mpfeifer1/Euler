@@ -7,7 +7,7 @@
 using namespace std;
 
 bool betterHand(string handOne, string handTwo); // Returns true if first is better, false if second is better
-string toCardNotation(int num);
+char toCardNotation(int num);
 
 int hasRoyalFlush    (string hand); // All methods return -1 if they don't have it
 int hasStraightFlush (string hand); // Otherwise, they return the highest card in it
@@ -18,7 +18,10 @@ int hasStraight      (string hand);
 int hasThreeOfAKind  (string hand);
 int hasTwoPairs      (string hand);
 int hasPair          (string hand);
+int hasPair          (string hand, int skip);
+
 int highestCard      (string hand);
+int highestValue     (string hand);
 
 int main() {
     int oneWins = 0;
@@ -83,58 +86,28 @@ int hasFullHouse(string hand) {
 }
 
 int hasFourOfAKind(string hand) {
-    if(count(hand.begin(), hand.end(), 'A') == 4 ||
-       count(hand.begin(), hand.end(), '2') == 4 ||
-       count(hand.begin(), hand.end(), '3') == 4 ||
-       count(hand.begin(), hand.end(), '4') == 4 ||
-       count(hand.begin(), hand.end(), '5') == 4 ||
-       count(hand.begin(), hand.end(), '6') == 4 ||
-       count(hand.begin(), hand.end(), '7') == 4 ||
-       count(hand.begin(), hand.end(), '8') == 4 ||
-       count(hand.begin(), hand.end(), '9') == 4 ||
-       count(hand.begin(), hand.end(), 'T') == 4 ||
-       count(hand.begin(), hand.end(), 'K') == 4 ||
-       count(hand.begin(), hand.end(), 'Q') == 4 ||
-       count(hand.begin(), hand.end(), 'J') == 4) {
-        return highestCard(hand);
+    for(int a = 1; a <= 13; a++) {
+        if(count(hand.begin(), hand.end(), toCardNotation(a)) == 4) {
+            return a;
+        }
     }
     return -1;
 }
 
 int hasThreeOfAKind(string hand) {
-    if(count(hand.begin(), hand.end(), 'A') == 3 ||
-       count(hand.begin(), hand.end(), '2') == 3 ||
-       count(hand.begin(), hand.end(), '3') == 3 ||
-       count(hand.begin(), hand.end(), '4') == 3 ||
-       count(hand.begin(), hand.end(), '5') == 3 ||
-       count(hand.begin(), hand.end(), '6') == 3 ||
-       count(hand.begin(), hand.end(), '7') == 3 ||
-       count(hand.begin(), hand.end(), '8') == 3 ||
-       count(hand.begin(), hand.end(), '9') == 3 ||
-       count(hand.begin(), hand.end(), 'T') == 3 ||
-       count(hand.begin(), hand.end(), 'K') == 3 ||
-       count(hand.begin(), hand.end(), 'Q') == 3 ||
-       count(hand.begin(), hand.end(), 'J') == 3) {
-        return highestCard(hand);
+    for(int a = 1; a <= 13; a++) {
+        if(count(hand.begin(), hand.end(), toCardNotation(a)) == 3) {
+            return a;
+        }
     }
     return -1;
 }
 
 int hasPair(string hand) {
-    if(count(hand.begin(), hand.end(), 'A') == 2 ||
-       count(hand.begin(), hand.end(), '2') == 2 ||
-       count(hand.begin(), hand.end(), '3') == 2 ||
-       count(hand.begin(), hand.end(), '4') == 2 ||
-       count(hand.begin(), hand.end(), '5') == 2 ||
-       count(hand.begin(), hand.end(), '6') == 2 ||
-       count(hand.begin(), hand.end(), '7') == 2 ||
-       count(hand.begin(), hand.end(), '8') == 2 ||
-       count(hand.begin(), hand.end(), '9') == 2 ||
-       count(hand.begin(), hand.end(), 'T') == 2 ||
-       count(hand.begin(), hand.end(), 'K') == 2 ||
-       count(hand.begin(), hand.end(), 'Q') == 2 ||
-       count(hand.begin(), hand.end(), 'J') == 2) {
-        return highestCard(hand);
+    for(int a = 1; a <= 13; a++) {
+        if(count(hand.begin(), hand.end(), toCardNotation(a)) == 2) {
+            return a;
+        }
     }
     return -1;
 }
@@ -229,18 +202,18 @@ int highestValue(string hand) {
     return -1;
 }
 
-string toCardNotation(int num) {
+char toCardNotation(int num) {
     switch(num) {
         case 13:
-            return "K";
+            return 'K';
         case 12:
-            return "Q";
+            return 'Q';
         case 11:
-            return "J";
+            return 'J';
         case 10:
-            return "T";
+            return 'T';
         case 1:
-            return "A";
+            return 'A';
     }
-    return std::to_string(num);
+    return char(num);
 }
