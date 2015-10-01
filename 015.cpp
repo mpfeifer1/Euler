@@ -1,4 +1,6 @@
 #include <iostream>
+#include <strings.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -21,13 +23,18 @@ int main() {
 
 void permute(string s, int l, int r) {
     int i;
-    if(l ==r) {
+    if(l == r) {
         cout << s << endl;
     } else {
+        string was[256];
+        bzero(was,256);
         for(i = l; i < s.length(); i++) {
-            swap(s[l], s[i]);
-            permute(s, l+1, r);
-            swap(s[l], s[i]);
+            if(was[i] != "1") {
+                swap(s[l], s[i]);
+                permute(s, l+1, r);
+                swap(s[l], s[i]);
+                was[i] = "1";
+            }
         }
     }
 }
