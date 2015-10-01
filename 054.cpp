@@ -44,9 +44,9 @@ int main() {
         cout << handOne << endl;
         cout << hasPair(handOne) << endl;
 
-        //if(betterHand(handOne)) {
-        //    oneWins++;
-        //}
+        if(betterHand(handOne, handTwo)) {
+            oneWins++;
+        }
     }
 
     cout << "Player 1 won " << oneWins << " times" << endl;
@@ -104,7 +104,14 @@ int hasThreeOfAKind(string hand) {
 }
 
 int hasPair(string hand) {
+    return hasPair(hand, -1);
+}
+
+int hasPair(string hand, int skip) {
     for(int a = 1; a <= 13; a++) {
+        if(a == skip) {
+            a++;
+        }
         if(count(hand.begin(), hand.end(), toCardNotation(a)) == 2) {
             return a;
         }
@@ -114,8 +121,11 @@ int hasPair(string hand) {
 
 int hasTwoPairs(string hand) {
     if(hasPair(hand) > 0) {
-        
+        int valueOne = hasPair(hand);
+        int valueTwo = hasPair(hand, valueOne);
+        return valueTwo;
     }
+    return -1;
 }
 
 int hasStraight(string hand) {
