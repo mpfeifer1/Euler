@@ -14,12 +14,15 @@ int main() {
 }
 
 long int factorial(int movesNeeded, int sideLength) {
-    long int sum = 1;
+    long double sum = 1;
 
-    for(int i = sideLength + 1; i <= movesNeeded; i++) {
+    for(int i = 1; i <= movesNeeded; i++) {
         sum *= i;
+        if(i <= sideLength) {
+            sum /= (i * i);
+        }
+        cout << "Sum is " << sum << endl;
     }
 
-    sum /= sideLength;
-    return sum;
+    return (int)sum;
 }
