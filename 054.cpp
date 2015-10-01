@@ -42,14 +42,48 @@ int main() {
         handTwo = input.substr(10,10);
 
         cout << handOne << endl;
-        cout << hasPair(handOne) << endl;
+        //cout << hasPair(handOne) << endl;
 
         if(betterHand(handOne, handTwo)) {
             oneWins++;
+            cout << "PLayer One Wins" << endl;
+        } else {
+            cout << "Player Two Wins" << endl;
         }
     }
 
     cout << "Player 1 won " << oneWins << " times" << endl;
+}
+
+bool betterHand(string handOne, string handTwo) {
+    if(hasRoyalFlush(handOne) != hasRoyalFlush(handTwo)) {
+        return hasRoyalFlush(handOne) > hasRoyalFlush(handTwo);
+    }
+    if(hasStraightFlush(handOne) != hasStraightFlush(handTwo)) {
+        return hasStraightFlush(handOne) > hasStraightFlush(handTwo);
+    }
+    if(hasFourOfAKind(handOne) != hasFourOfAKind(handTwo)) {
+        return hasFourOfAKind(handOne) > hasFourOfAKind(handTwo);
+    }
+    if(hasFullHouse(handOne) != hasFullHouse(handTwo)) {
+        return hasFullHouse(handOne) > hasFullHouse(handTwo);
+    }
+    if(hasFlush(handOne) != hasFlush(handTwo)) {
+        return hasFlush(handOne) > hasFlush(handTwo);
+    }
+    if(hasStraight(handOne) != hasStraight(handTwo)) {
+        return hasStraight(handOne) > hasStraight(handTwo);
+    }
+    if(hasThreeOfAKind(handOne) != hasThreeOfAKind(handTwo)) {
+        return hasThreeOfAKind(handOne) > hasThreeOfAKind(handTwo);
+    }
+    if(hasTwoPairs(handOne) != hasTwoPairs(handTwo)) {
+        return hasTwoPairs(handOne) > hasTwoPairs(handTwo);
+    }
+    if(hasPair(handOne) != hasPair(handTwo)) {
+        return hasPair(handOne) > hasPair(handTwo);
+    }
+    return highestCard(handOne) > highestCard(handTwo);
 }
 
 int hasRoyalFlush(string hand) {
