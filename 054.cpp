@@ -103,12 +103,15 @@ bool betterHand(string handOne, string handTwo) {
 }
 
 int hasRoyalFlush(string hand) {
-    return hasFlush(hand) > 0 &&
-           hand.find("A") != string::npos &&
-           hand.find("K") != string::npos &&
-           hand.find("Q") != string::npos &&
-           hand.find("J") != string::npos &&
-           hand.find("T") != string::npos;
+    if(hasFlush(hand) > 0 &&
+       hand.find("A") != string::npos &&
+       hand.find("K") != string::npos &&
+       hand.find("Q") != string::npos &&
+       hand.find("J") != string::npos &&
+       hand.find("T") != string::npos) {
+        return 1;
+    }
+    return -1;
 }
 
 int hasStraightFlush(string hand) {
@@ -171,18 +174,19 @@ int hasPair(string hand, int skip) {
 
 int hasTwoPairs(string hand) {
     int valueOne = hasPair(hand);
-    int valueTwo = hasPair(hand, valueTwo);
+    int valueTwo = hasPair(hand, valueOne);
 
     if(valueOne > 0 && valueTwo > 0) {
-        int valueOne = hasPair(hand);
-        int valueTwo = hasPair(hand, valueOne);
+
         if(valueOne > valueTwo) {
             return valueOne;
         } else if(valueOne < valueTwo) {
             return valueTwo;
         } else {
             // TODO check last card
+            return valueOne;
         }
+
     }
     return -1;
 }
