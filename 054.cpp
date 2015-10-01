@@ -69,8 +69,11 @@ bool betterHand(string handOne, string handTwo) {
         return hasFullHouse(handOne) > hasFullHouse(handTwo);
     }
     if(hasFlush(handOne) > 0 || hasFlush(handTwo) > 0) {
+        if(hasFlush(handOne) == hasFlush(handTwo)) {
+            // Find 2nd, 3rd, 4th, 5th
+        }
         return hasFlush(handOne) > hasFlush(handTwo);
-    } // TODO find 2nd, 3rd, 4th, 5th
+    }
     if(hasStraight(handOne) > 0 || hasStraight(handTwo) > 0) {
         return hasStraight(handOne) > hasStraight(handTwo);
     }
@@ -158,7 +161,13 @@ int hasTwoPairs(string hand) {
     if(hasPair(hand) > 0) {
         int valueOne = hasPair(hand);
         int valueTwo = hasPair(hand, valueOne);
-        return valueTwo;
+        if(valueOne > valueTwo) {
+            return valueOne;
+        } else if(valueOne < valueTwo) {
+            return valueTwo;
+        } else {
+            // TODO check last card
+        }
     }
     return -1;
 }
