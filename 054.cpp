@@ -70,7 +70,7 @@ bool betterHand(string handOne, string handTwo) {
     }
     if(hasFlush(handOne) > 0 || hasFlush(handTwo) > 0) {
         return hasFlush(handOne) > hasFlush(handTwo);
-    } // TODO find 2nd highest card, etc...
+    } // TODO find 2nd, 3rd, 4th, 5th
     if(hasStraight(handOne) > 0 || hasStraight(handTwo) > 0) {
         return hasStraight(handOne) > hasStraight(handTwo);
     }
