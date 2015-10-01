@@ -5,27 +5,23 @@
 
 using namespace std;
 
-void permute(int k, string &s);
+int factorial(int number);
 
 int main() {
     int height = 2;
     int length = 2;
-    string path = "";
 
-    for(int i = 0; i < length; i++) {
-        path += "R";
-    }
-    for(int i = 0; i < height; i++) {
-        path += "D";
-    }
+    int movesNeeded = height+length;
+    int permutations = factorial(movesNeeded) /
+                       (factorial(length) * factorial(height));
 
-    permute(3, path);
+    cout << permutations << "different paths" << endl;
 }
 
-void permute(int k, string &s) {
-    for(int i = 1; i < s.size(); i++) {
-        swap(s[k % (i + 1)], s[i]);
-        k = k / (i + 1);
-        cout << s << endl;
+int factorial(int number) {
+    int sum = 0;
+    for(int i = number; i > 1; i--) {
+        sum *= i;
     }
+    return sum;
 }
