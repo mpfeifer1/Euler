@@ -1,10 +1,11 @@
 #include <iostream>
 #include <strings.h>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
-void permute(string s, int i, int n);
+void permute(int k, string &s);
 
 int main() {
     int height = 2;
@@ -18,23 +19,13 @@ int main() {
         path += "D";
     }
 
-    permute(path, 0, path.length() - 1);
+    permute(3, path);
 }
 
-void permute(string s, int l, int r) {
-    int i;
-    if(l == r) {
+void permute(int k, string &s) {
+    for(int i = 1; i < s.size(); i++) {
+        swap(s[k % (i + 1)], s[i]);
+        k = k / (i + 1);
         cout << s << endl;
-    } else {
-        string was[256];
-        bzero(was,256);
-        for(i = l; i < s.length(); i++) {
-            if(was[i] != "1") {
-                swap(s[l], s[i]);
-                permute(s, l+1, r);
-                swap(s[l], s[i]);
-                was[i] = "1";
-            }
-        }
     }
 }
