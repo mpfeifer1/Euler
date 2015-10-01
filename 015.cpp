@@ -2,20 +2,20 @@
 
 using namespace std;
 
-long int factorial(long int number);
+long int factorial(int number);
 
 int main() {
-    long int height = 2;
-    long int length = 2;
+    int height = 20;
+    int length = 20;
 
-    long int movesNeeded = height+length;
+    int movesNeeded = height+length;
     long int permutations = factorial(movesNeeded) /
                        (factorial(length) * factorial(height));
 
     cout << permutations << " different paths" << endl;
 }
 
-long int factorial(long int number) {
+long int factorial(int number) {
     long int sum = 1;
     for(int i = number; i > 1; i--) {
         sum *= i;
