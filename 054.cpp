@@ -114,7 +114,7 @@ int hasFlush(string hand) {
 
 int hasFullHouse(string hand) {
     if(hasPair(hand) > 0 && hasThreeOfAKind(hand) > 0) {
-        return highestCard(hand);
+        return hasThreeOfAKind(hand);
     }
     return -1;
 }
@@ -165,7 +165,7 @@ int hasTwoPairs(string hand) {
 int hasStraight(string hand) {
     int highest = highestValue(hand);
     bool hasStraight = true;
-    for(int i = 1; i < 5; i++) {
+    for(int i = 1; i <= 5; i++) {
         if(!(hand.find(toCardNotation(highest - i)) != string::npos)) {
             hasStraight = false;
         }
