@@ -41,7 +41,7 @@ int main() {
         handOne = input.substr(0, 10);
         handTwo = input.substr(10,10);
 
-        cout << handOne << endl;
+        cout << handOne << " " << handTwo << endl;
         //cout << hasPair(handOne) << endl;
 
         if(betterHand(handOne, handTwo)) {
@@ -56,31 +56,31 @@ int main() {
 }
 
 bool betterHand(string handOne, string handTwo) {
-    if(hasRoyalFlush(handOne) != hasRoyalFlush(handTwo)) {
+    if(hasRoyalFlush(handOne) > 0 || hasRoyalFlush(handTwo) > 0) {
         return hasRoyalFlush(handOne) > hasRoyalFlush(handTwo);
     }
-    if(hasStraightFlush(handOne) != hasStraightFlush(handTwo)) {
+    if(hasStraightFlush(handOne) > 0 || hasStraightFlush(handTwo) > 0) {
         return hasStraightFlush(handOne) > hasStraightFlush(handTwo);
     }
-    if(hasFourOfAKind(handOne) != hasFourOfAKind(handTwo)) {
+    if(hasFourOfAKind(handOne) > 0 || hasFourOfAKind(handTwo) > 0) {
         return hasFourOfAKind(handOne) > hasFourOfAKind(handTwo);
     }
-    if(hasFullHouse(handOne) != hasFullHouse(handTwo)) {
+    if(hasFullHouse(handOne) > 0 || hasFullHouse(handTwo) > 0) {
         return hasFullHouse(handOne) > hasFullHouse(handTwo);
     }
-    if(hasFlush(handOne) != hasFlush(handTwo)) {
+    if(hasFlush(handOne) > 0 || hasFlush(handTwo) > 0) {
         return hasFlush(handOne) > hasFlush(handTwo);
     }
-    if(hasStraight(handOne) != hasStraight(handTwo)) {
+    if(hasStraight(handOne) > 0 || hasStraight(handTwo) > 0) {
         return hasStraight(handOne) > hasStraight(handTwo);
     }
-    if(hasThreeOfAKind(handOne) != hasThreeOfAKind(handTwo)) {
+    if(hasThreeOfAKind(handOne) > 0 || hasThreeOfAKind(handTwo) > 0) {
         return hasThreeOfAKind(handOne) > hasThreeOfAKind(handTwo);
     }
-    if(hasTwoPairs(handOne) != hasTwoPairs(handTwo)) {
+    if(hasTwoPairs(handOne) > 0 || hasTwoPairs(handTwo) > 0) {
         return hasTwoPairs(handOne) > hasTwoPairs(handTwo);
     }
-    if(hasPair(handOne) != hasPair(handTwo)) {
+    if(hasPair(handOne) > 0 ||  hasPair(handTwo) > 0) {
         return hasPair(handOne) > hasPair(handTwo);
     }
     return highestCard(handOne) > highestCard(handTwo);
