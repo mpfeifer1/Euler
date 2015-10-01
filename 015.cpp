@@ -5,7 +5,7 @@ using namespace std;
 long int factorial(int movesNeeded, int sideLength);
 
 int main() {
-    int sideLength = 2;
+    int sideLength = 20;
 
     int movesNeeded = 2 * sideLength;
     long int permutations = factorial(movesNeeded, sideLength);
@@ -24,5 +24,5 @@ long int factorial(int movesNeeded, int sideLength) {
         cout << "Sum is " << sum << endl;
     }
 
-    return (int)sum;
+    return (long int)sum;
 }
