@@ -1,25 +1,22 @@
 #include <iostream>
-#include <strings.h>
-#include <algorithm>
-#include <string>
 
 using namespace std;
 
-int factorial(int number);
+long int factorial(long int number);
 
 int main() {
-    int height = 2;
-    int length = 2;
+    long int height = 2;
+    long int length = 2;
 
-    int movesNeeded = height+length;
-    int permutations = factorial(movesNeeded) /
+    long int movesNeeded = height+length;
+    long int permutations = factorial(movesNeeded) /
                        (factorial(length) * factorial(height));
 
-    cout << permutations << "different paths" << endl;
+    cout << permutations << " different paths" << endl;
 }
 
-int factorial(int number) {
-    int sum = 0;
+long int factorial(long int number) {
+    long int sum = 1;
     for(int i = number; i > 1; i--) {
         sum *= i;
     }
