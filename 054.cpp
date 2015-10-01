@@ -170,7 +170,10 @@ int hasPair(string hand, int skip) {
 }
 
 int hasTwoPairs(string hand) {
-    if(hasPair(hand) > 0) {
+    int valueOne = hasPair(hand);
+    int valueTwo = hasPair(hand, valueTwo);
+
+    if(valueOne > 0 && valueTwo > 0) {
         int valueOne = hasPair(hand);
         int valueTwo = hasPair(hand, valueOne);
         if(valueOne > valueTwo) {
