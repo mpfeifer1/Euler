@@ -21,7 +21,6 @@ long int factorial(int movesNeeded, int sideLength) {
         if(i <= sideLength) {
             sum /= (i * i);
         }
-        cout << "Sum is " << sum << endl;
     }
 
     return (long int)sum;
