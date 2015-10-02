@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int desiredLength = 2;
+    int desiredLength = 1000;
     int array1[desiredLength];
     int array2[desiredLength];
     int counter = 2; // Starts at two to account for f1 and f2
@@ -77,5 +77,5 @@ int main() {
     }
     cout << endl << endl;
 
-    cout << "Count is " << counter - 2 << endl; // Subtracts two since the value is always too high
+    cout << "Count is " << counter << endl;
 }
