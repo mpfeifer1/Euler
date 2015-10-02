@@ -3,9 +3,10 @@
 using namespace std;
 
 int main() {
-    int desiredLength = 1000;
+    int desiredLength = 2;
     int array1[desiredLength];
     int array2[desiredLength];
+    int counter = 2; // Starts at two to account for f1 and f2
 
     // Initializes array 1 to 0
     for(int i = desiredLength -1; i >= 0; i--) {
@@ -33,7 +34,10 @@ int main() {
     }
     cout << endl << endl;
 
-    while(array1[desiredLength - 1] == 0 || array2[desiredLength - 1] == 0) {
+    while(array1[desiredLength - 1] == 0 && array2[desiredLength - 1] == 0) {
+
+        counter += 2; // Increases counter by two
+
         // Adds array 1 to array 2
         int carry1 = 0;
         for(int i = 0; i < desiredLength; i++) {
@@ -73,4 +77,5 @@ int main() {
     }
     cout << endl << endl;
 
+    cout << "Count is " << counter - 2 << endl; // Subtracts two since the value is always too high
 }
