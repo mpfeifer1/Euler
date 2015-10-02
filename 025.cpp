@@ -3,9 +3,13 @@
 using namespace std;
 
 int main() {
-    int search = 1000;
-    int past = 1;
-    int current = 1;
+    desiredLength = 1000;
+    int array1[desiredLength];
+    int array2[desiredLength];
+
+    array1[0] = 1;
+    array2[0] = 1;
+
     while(current < search) {
         past += current;
         swap(current, past);
