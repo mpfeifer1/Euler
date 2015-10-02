@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int desiredLength = 3;
+    int desiredLength = 1000;
     int array1[desiredLength];
     int array2[desiredLength];
 
@@ -59,18 +59,18 @@ int main() {
                 carry2 = 0;
             }
         }
-
-        // Outputs array 1
-        for(int i = desiredLength -1; i >= 0; i--) {
-            cout << array1[i];
-        }
-        cout << endl << endl;
-
-        // Outputs array 2
-        for(int i = desiredLength -1; i >= 0; i--) {
-            cout << array2[i];
-        }
-        cout << endl << endl;
-
     }
+
+    // Outputs array 1
+    for(int i = desiredLength -1; i >= 0; i--) {
+        cout << array1[i];
+    }
+    cout << endl << endl;
+
+    // Outputs array 2
+    for(int i = desiredLength -1; i >= 0; i--) {
+        cout << array2[i];
+    }
+    cout << endl << endl;
+
 }
