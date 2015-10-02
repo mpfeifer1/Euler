@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int desiredLength = 4;
+    int desiredLength = 3;
     int array1[desiredLength];
     int array2[desiredLength];
 
@@ -36,7 +36,7 @@ int main() {
     while(array1[desiredLength - 1] == 0 || array2[desiredLength - 1] == 0) {
         // Adds array 1 to array 2
         int carry1 = 0;
-        for(int i = 0; i < desiredLength -1; i++) {
+        for(int i = 0; i < desiredLength; i++) {
             int temp = array1[i] + array2[i] + carry1;
             if(temp > 9) {
                 array1[i] = (temp % 10);
@@ -49,7 +49,7 @@ int main() {
 
         // Adds array 2 to array 1
         int carry2 = 0;
-        for(int i = 0; i < desiredLength -1; i++) {
+        for(int i = 0; i < desiredLength; i++) {
             int temp = array1[i] + array2[i] + carry2;
             if(temp > 9) {
                 array2[i] = (temp % 10);
