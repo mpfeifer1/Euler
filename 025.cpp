@@ -29,11 +29,11 @@ int main() {
     cout << endl << endl;
 
 
-    while(array1[desiredLength - 1] < 0 && array2[desiredLength - 1] < 0) {
+    while(array1[desiredLength - 1] == 0 || array2[desiredLength - 1] == 0) {
         // Adds array 1 to array 2
         int carry1 = 0;
         for(int i = 0; i < desiredLength -1; i++) {
-            int temp = array1[i] + array2[i];
+            int temp = array1[i] + array2[i] + carry;
             if(temp > 9) {
                 array1[i] = (temp % 10) + carry1;
                 carry1 = 1;
@@ -46,7 +46,7 @@ int main() {
         // Adds array 2 to array 1
         int carry2 = 0;
         for(int i = 0; i < desiredLength -1; i++) {
-            int temp = array1[i] + array2[i];
+            int temp = array1[i] + array2[i] + carry;
             if(temp > 9) {
                 array2[i] = (temp % 10) + carry2;
                 carry2 = 1;
