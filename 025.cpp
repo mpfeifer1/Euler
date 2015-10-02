@@ -7,19 +7,16 @@ int main() {
     int array1[desiredLength];
     int array2[desiredLength];
 
-    array1[0] = 1;
-    array2[0] = 1;
+    for(int i = desiredLength -1; i > 0; i--) {
+        array1[i] = 0;
+    }
 
     for(int i = desiredLength -1; i > 0; i--) {
-        cout << array1[i];
+        array2[i] = 0;
     }
-    cout << endl << endl;
 
-     for(int i = desiredLength -1; i > 0; i--) {
-        cout << array2[i];
-    }
-    cout << endl << endl;
-
+    array1[0] = 1;
+    array2[0] = 1;
 
     while(array1[desiredLength - 1] < 0 && array2[desiredLength - 1] < 0) {
         // Adds array 1 to array 2
@@ -54,7 +51,7 @@ int main() {
     }
     cout << endl << endl;
 
-     for(int i = desiredLength -1; i > 0; i--) {
+    for(int i = desiredLength -1; i > 0; i--) {
         cout << array2[i];
     }
     cout << endl << endl;
