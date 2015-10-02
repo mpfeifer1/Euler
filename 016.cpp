@@ -8,23 +8,18 @@ int main() {
     int power = 4;
     int sum = 0;
 
-    int digits = 3; // A guess of the number of digits in 2^1000
+    int digits = 4; // A guess of the number of digits in 2^1000
     int number[digits];
     number[0] = 1;
     for(int i = 1; i < digits - 1; i++) {
         number[i] = 0;
     }
 
-    for(int i = 0; i < digits - 1; i++) {
-        cout << number[i] << endl;
-    }
-    cout << "Properly initialized" << endl;
-
     bool carryNext = false;
     bool carryThis = false;
 
     for(int i = 0; i < power; i++) {
-        //cout << "i is " << i << endl;
+        cout << "i is " << i << endl;
         for(int j = 0; j < digits - 1; j++) {
             //cout << "j is " << j << endl;
             int temp = number[i];
@@ -48,7 +43,7 @@ int main() {
     }
     cout << "Successfully carried" << endl;
 
-    for(int i = 0; i < digits; i++) {
+    for(int i = digits - 1; i >= 0; i--) {
         cout << number[i];
     }
     cout << endl;
