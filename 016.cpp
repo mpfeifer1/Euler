@@ -18,9 +18,7 @@ int main() {
     int carry = 0;
 
     for(int i = 0; i < power; i++) {
-        cout << "i is " << i << endl;
         for(int j = 0; j < digits - 1; j++) {
-            //cout << "j is " << j << endl;
             int temp = number[j] * 2;
             if(temp > 9) {
                 number[j] = (temp % 10) + carry;
@@ -33,10 +31,8 @@ int main() {
     }
 
     for(int i = digits - 1; i >= 0; i--) {
-        cout << number[i];
         sum += number[i];
     }
-    cout << endl;
 
     cout << "Sum of the digits is " << sum << endl;
 }
