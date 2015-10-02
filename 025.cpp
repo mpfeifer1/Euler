@@ -33,12 +33,12 @@ int main() {
         // Adds array 1 to array 2
         int carry1 = 0;
         for(int i = 0; i < desiredLength -1; i++) {
-            int temp = array1[i] + array2[i] + carry;
+            int temp = array1[i] + array2[i] + carry1;
             if(temp > 9) {
-                array1[i] = (temp % 10) + carry1;
+                array1[i] = (temp % 10);
                 carry1 = 1;
             } else {
-                array1[i] = temp + carry1;
+                array1[i] = temp;
                 carry1 = 0;
             }
         }
@@ -46,15 +46,26 @@ int main() {
         // Adds array 2 to array 1
         int carry2 = 0;
         for(int i = 0; i < desiredLength -1; i++) {
-            int temp = array1[i] + array2[i] + carry;
+            int temp = array1[i] + array2[i] + carry2;
             if(temp > 9) {
-                array2[i] = (temp % 10) + carry2;
+                array2[i] = (temp % 10);
                 carry2 = 1;
             } else {
-                array2[i] = temp + carry2;
+                array2[i] = temp;
                 carry2 = 0;
             }
         }
+
+        for(int i = desiredLength -1; i >= 0; i--) {
+            cout << array1[i];
+        }
+        cout << endl << endl;
+
+        for(int i = desiredLength -1; i >= 0; i--) {
+            cout << array2[i];
+        }
+        cout << endl << endl;
+
     }
 
     for(int i = desiredLength -1; i >= 0; i--) {
