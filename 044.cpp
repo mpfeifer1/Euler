@@ -6,6 +6,8 @@ int pentagon(int number);
 
 int main() {
     bool found = false;
+    int current = 1;
+    int next = 2;
     while(!found) {
 
     }
