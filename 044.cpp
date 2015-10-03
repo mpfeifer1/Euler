@@ -5,11 +5,11 @@ using namespace std;
 int pentagon(int number);
 
 int main() {
-    bool found = false;
-    int current = 1;
-    int next = 2;
-    while(!found) {
-
+    int search = 100; // How many pentagonal numbers to search
+    for(int i = 1; i < search; i++) {
+        for(int j = 1; j < search; j++) {
+            // Check
+        }
     }
 }
 
