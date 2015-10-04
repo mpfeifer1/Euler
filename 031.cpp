@@ -6,15 +6,15 @@ int main() {
     int goal = 3;
     int total = 0;
 
-    for(int a = goal; a >= goal; a -= 200) {
-        for(int b = goal; b >= goal; b -= 100) {
-            for(int c = goal; c >= goal; c -=  50) {
-                for(int d = goal; d >= goal; d -=  20) {
-                    for(int e = goal; e >= goal; e -=  10) {
-                        for(int f = goal; f >= goal; f -=   5) {
-                            for(int g = goal; g >= goal; g -=   2) {
-                                for(int h = goal; h >= goal; h -=   1) {
-                                    
+    for(int a = goal; a >= 0; a -= 200) {
+        for(int b = a; b >= 0; b -= 100) {
+            for(int c = b; c >= 0; c -= 50) {
+                for(int d = c; d >= 0; d -= 20) {
+                    for(int e = d; e >= 0; e -= 10) {
+                        for(int f = e; f >= 0; f -= 5) {
+                            for(int g = f; g >= 0; g -= 2) {
+                                for(int h = g; h >= 0; h -= 1) {
+                                    total++;
                                 }
                             }
                         }
@@ -23,4 +23,6 @@ int main() {
             }
         }
     }
+
+    cout << "Total is " << total << endl;
 }
