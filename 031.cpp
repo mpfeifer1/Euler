@@ -13,9 +13,7 @@ int main() {
                     for(int e = d; e >= 0; e -= 10) {
                         for(int f = e; f >= 0; f -= 5) {
                             for(int g = f; g >= 0; g -= 2) {
-                                for(int h = g; h >= 0; h -= 1) {
-                                    total++;
-                                }
+                                total++;
                             }
                         }
                     }
