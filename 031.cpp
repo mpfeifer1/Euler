@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int goal = 3;
+    int goal = 200;
     int total = 0;
 
     for(int a = goal; a >= 0; a -= 200) {
