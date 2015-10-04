@@ -9,6 +9,10 @@ int main() {
     for(int i = 1; i < search; i++) {
         for(int j = 1; j < search; j++) {
             // Check
+            if() { // If it's found, break out
+                
+                break;
+            }
         }
     }
 }
