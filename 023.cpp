@@ -3,9 +3,7 @@
 using namespace std;
 
 bool isAbundant(int number);
-bool isSumOfTwoAbundant(int number);
 int getSumOfFactors(int number);
-int getNextAbundant(int number);
 
 int main() {
     int sum = 0;
@@ -50,12 +48,4 @@ bool isAbundant(int number) {
         return false;
     }
     return number < getSumOfFactors(number);
-}
-
-int getNextAbundant(int number) {
-    number++;
-    while(!isAbundant(number)) {
-        number++;
-    }
-    return number;
 }
