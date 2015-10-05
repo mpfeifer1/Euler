@@ -1,8 +1,11 @@
-#include <iosteam>
+#include <iostream>
+#include <cmath>
 
 using namespace std;
 
 bool isPrime(int number);
+int nextPrime(int number);
+bool isGoldbach(int number);
 
 int main() {
     int current = 9;
@@ -36,9 +39,9 @@ int nextPrime(int number) {
 }
 
 bool isGoldbach(int number) {
-    for(int i = 2; i < current; i = nextPrime(i)) {
-        for(int j = 1; j < sqrt(current / 2.0) + 1; j ++) {
-            if(current == i + (j * j * 2)) {
+    for(int i = 2; i < number; i = nextPrime(i)) {
+        for(int j = 1; j < sqrt(number / 2.0) + 1; j ++) {
+            if(number == i + (j * j * 2)) {
             return true;
             }
         }
