@@ -36,6 +36,7 @@ int nextPrime(int number) {
     while(!isPrime(number)) {
         number += 2;
     }
+    return number;
 }
 
 bool isGoldbach(int number) {
