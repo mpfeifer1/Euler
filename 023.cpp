@@ -9,13 +9,11 @@ int getNextAbundant(int number);
 
 int main() {
     int sum = 0;
-    /*
-    for(int i = 0; i <= 28123; i++)
+    for(int i = 12; i <= 28123; i++)
         if(!isSumOfTwoAbundant(i)) {
             sum += i;
         }
     }
-    */
     cout << "Sum is " << sum << endl;
 }
 
@@ -34,8 +32,8 @@ bool isAbundant(int number) {
 }
 
 bool isSumOfTwoAbundant(int number) {
-    for(int i = 1; i < number; i = getNextAbundant(i)) {
-        for(int j = 1; j < number; j = getNextAbundant(j)) {
+    for(int i = 12; i < number; i = getNextAbundant(i)) {
+        for(int j = 12; j < number; j = getNextAbundant(j)) {
             if(number == i + j) {
                 return true;
             }
