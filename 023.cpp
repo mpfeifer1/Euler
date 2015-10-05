@@ -9,8 +9,19 @@ int getNextAbundant(int number);
 
 int main() {
     int sum = 0;
+    int min = 12; // Smallest Abundant Number
+    int max = 28123; // Largest Abundant Number
+    int abundants[max];
+    int index = 0;
+
+    for(int i = min; i <= max; i++) {
+        if(isAbundant(i)) {
+            abundants[index] = i;
+            index++;
+        }
+    }
+
     for(int i = 12; i <= 28123; i++) {
-        cout << i << endl;
         if(!isSumOfTwoAbundant(i)) {
             sum += i;
         }
