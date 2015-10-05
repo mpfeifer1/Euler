@@ -9,7 +9,7 @@ int getNextAbundant(int number);
 
 int main() {
     int sum = 0;
-    for(int i = 12; i <= 28123; i++)
+    for(int i = 12; i <= 28123; i++) {
         if(!isSumOfTwoAbundant(i)) {
             sum += i;
         }
