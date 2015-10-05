@@ -11,6 +11,7 @@ int main() {
     int max = 28123; // Largest Abundant Number necessary
     int abundants[6965]; // Calculated total number of Abundants under 28123
     int index = 0;
+    bool found = false;
 
     for(int i = min; i <= max; i++) {
         if(isAbundant(i)) {
@@ -22,10 +23,13 @@ int main() {
 
     for(int num = 1; num < max; num++) {
         cout << "Num is " << num << endl;
-        for(int& i : abundants) {
-            for(int& j : abundants) {
+        found = false;
+        for(int& i : abundants; !found) {
+            for(int& j : abundants; !found) {
                 if(i + j == num) {
                     sum += i;
+                    found = true;
+                    break;
                 }
             }
         }
