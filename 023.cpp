@@ -10,6 +10,7 @@ int getNextAbundant(int number);
 int main() {
     int sum = 0;
     for(int i = 12; i <= 28123; i++) {
+        cout << i << endl;
         if(!isSumOfTwoAbundant(i)) {
             sum += i;
         }
@@ -28,6 +29,9 @@ int getSumOfFactors(int number) {
 }
 
 bool isAbundant(int number) {
+    if(number < 12) {
+        return false;
+    }
     return number < getSumOfFactors(number);
 }
 
