@@ -10,20 +10,26 @@ int getNextAbundant(int number);
 int main() {
     int sum = 0;
     int min = 12; // Smallest Abundant Number
-    int max = 28123; // Largest Abundant Number
-    int abundants[max];
+    int max = 28123; // Largest Abundant Number necessary
+    int abundants[6965]; // Calculated total number of Abundants under 28123
     int index = 0;
 
     for(int i = min; i <= max; i++) {
         if(isAbundant(i)) {
             abundants[index] = i;
             index++;
+            cout << "Added " << i << endl;
         }
     }
 
-    for(int i = 12; i <= 28123; i++) {
-        if(!isSumOfTwoAbundant(i)) {
-            sum += i;
+    for(int num = 1; num < max; num++) {
+        cout << "Num is " << num << endl;
+        for(int& i : abundants) {
+            for(int& j : abundants) {
+                if(i + j == num) {
+                    sum += i;
+                }
+            }
         }
     }
     cout << "Sum is " << sum << endl;
@@ -44,17 +50,6 @@ bool isAbundant(int number) {
         return false;
     }
     return number < getSumOfFactors(number);
-}
-
-bool isSumOfTwoAbundant(int number) {
-    for(int i = 12; i < number; i = getNextAbundant(i)) {
-        for(int j = 12; j < number; j = getNextAbundant(j)) {
-            if(number == i + j) {
-                return true;
-            }
-        }
-    }
-    return false;
 }
 
 int getNextAbundant(int number) {
