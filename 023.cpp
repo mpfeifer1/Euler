@@ -5,6 +5,7 @@ using namespace std;
 bool isAbundant(int number);
 bool isSumOfTwoAbundant(int number);
 int getSumOfFactors(int number);
+int getNextAbundant(int number);
 
 int main() {
     int sum = 0;
@@ -20,7 +21,7 @@ int main() {
 
 int getSumOfFactors(int number) {
     int sum = 0;
-    for(int i = 1; i <= number / 2; i++) {
+    for(int i = 1; i <= number / 2; i++) { // Add a +1 to the number/2 ???
         if(number % i == 0) {
             sum += i;
         }
@@ -30,4 +31,23 @@ int getSumOfFactors(int number) {
 
 bool isAbundant(int number) {
     return number < getSumOfFactors(number);
+}
+
+bool isSumOfTwoAbundant(int number) {
+    for(int i = 1; i < number; i = getNextAbundant(i)) {
+        for(int j = 1; j < number; j = getNextAbundant(j)) {
+            if(number == i + j) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+int getNextAbundant(int number) {
+    number++;
+    while(!isAbundant(number)) {
+        number++;
+    }
+    return number;
 }
