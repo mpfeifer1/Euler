@@ -10,26 +10,27 @@ int main() {
     int min = 12; // Smallest Abundant Number
     int max = 28123; // Largest Abundant Number necessary
     int abundants[6965]; // Calculated total number of Abundants under 28123
-    int index = 0;
+    int abundantsSize = 0;
     bool found = false;
+    int i;
+    int j;
 
     for(int i = min; i <= max; i++) {
         if(isAbundant(i)) {
-            abundants[index] = i;
-            index++;
-            cout << "Added " << i << endl;
+            abundants[abundantsSize] = i;
+            abundantsSize++;
         }
     }
+    cout << "Abundants list complete" << endl;
 
     for(int num = 1; num < max; num++) {
         cout << "Num is " << num << endl;
         found = false;
-        for(int& i : abundants; !found) {
-            for(int& j : abundants; !found) {
-                if(i + j == num) {
-                    sum += i;
+        for(int i = 0; i < abundantsSize && !found; i++) {
+            for(int j = 0; j < abundantsSize && !found; j++) {
+                if(abundants[i] + abundants[j] != num) {
+                    sum += num;
                     found = true;
-                    break;
                 }
             }
         }
@@ -48,8 +49,5 @@ int getSumOfFactors(int number) {
 }
 
 bool isAbundant(int number) {
-    if(number < 12) {
-        return false;
-    }
     return number < getSumOfFactors(number);
 }
