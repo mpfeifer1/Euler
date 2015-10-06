@@ -13,27 +13,34 @@ int main() {
     int abundantsSize = 0;
     bool sumOfAbundants = false;
 
+    // Tested, Working
     for(int i = min; i <= max; i++) {
         if(isAbundant(i)) {
             abundants[abundantsSize] = i;
             abundantsSize++;
+            cout << i << endl;
         }
     }
+
     cout << "Abundants list complete" << endl;
 
     for(int num = 1; num <= max; num++) {
-        cout << "Num is " << num << endl;
+        //cout << "Num is " << num << endl;
         sumOfAbundants = true;
+
         for(int i = 0; i <= abundantsSize && sumOfAbundants; i++) {
-            for(int j = 0; j <= abundantsSize && sumOfAbundants; j++) {
-                if(abundants[i] + abundants[j] <= num) {
+            for(int j = i; j <= abundantsSize && sumOfAbundants; j++) {
+
+                if(abundants[i] + abundants[j] == num) {
                     sumOfAbundants = true;
                 }
                 else {
                     sumOfAbundants = false;
                 }
+
             }
         }
+
         if(!sumOfAbundants) {
             sum += num;
         }
@@ -41,9 +48,10 @@ int main() {
     cout << "Sum is " << sum << endl;
 }
 
+// Tested, Working
 int getSumOfFactors(int number) {
     int sum = 0;
-    for(int i = 1; i <= (number / 2) + 1; i++) { // Add a +1 to the number/2 ???
+    for(int i = 1; i <= number / 2; i++) {
         if(number % i == 0) {
             sum += i;
         }
@@ -51,6 +59,7 @@ int getSumOfFactors(int number) {
     return sum;
 }
 
+// Tested, Working
 bool isAbundant(int number) {
     return number < getSumOfFactors(number);
 }
