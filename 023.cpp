@@ -23,13 +23,16 @@ int main() {
     }
     cout << "Abundants list complete" << endl;
 
-    for(int num = 1; num < max; num++) {
+    for(int num = 1; num <= max; num++) {
         cout << "Num is " << num << endl;
         sumOfAbundants = true;
-        for(int i = 0; i < abundantsSize && sumOfAbundants; i++) {
-            for(int j = 0; j < abundantsSize && sumOfAbundants; j++) {
-                if(abundants[i] + abundants[j] != num) {
+        for(int i = 0; i <= abundantsSize && sumOfAbundants; i++) {
+            for(int j = 0; j <= abundantsSize && sumOfAbundants; j++) {
+                if(abundants[i] + abundants[j] <= num) {
                     sumOfAbundants = true;
+                }
+                else {
+                    sumOfAbundants = false;
                 }
             }
         }
