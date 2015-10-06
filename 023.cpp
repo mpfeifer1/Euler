@@ -12,8 +12,6 @@ int main() {
     int abundants[6965]; // Calculated total number of Abundants under 28123
     int abundantsSize = 0;
     bool sumOfAbundants = false;
-    int i;
-    int j;
 
     for(int i = min; i <= max; i++) {
         if(isAbundant(i)) {
@@ -45,7 +43,7 @@ int main() {
 
 int getSumOfFactors(int number) {
     int sum = 0;
-    for(int i = 1; i <= number / 2; i++) { // Add a +1 to the number/2 ???
+    for(int i = 1; i <= (number / 2) + 1; i++) { // Add a +1 to the number/2 ???
         if(number % i == 0) {
             sum += i;
         }
