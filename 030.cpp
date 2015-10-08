@@ -9,6 +9,7 @@ int main() {
     int c = 0;
     int d = 0;
     int e = 0;
+    int f = 0;
     int sum = 0;
     int number = 0;
     int powers = 0;
@@ -18,19 +19,23 @@ int main() {
             for(c = 0; c < 10; c++) {
                 for(d = 0; d < 10; d++) {
                     for(e = 0; e < 10; e++) {
-                        number = (a * 10000) +
-                                 (b * 1000) +
-                                 (c * 100) +
-                                 (d * 10) +
-                                 (e * 1);
-                        powers = pow(a, 5) +
-                                 pow(b, 5) +
-                                 pow(c, 5) +
-                                 pow(d, 5) +
-                                 pow(e, 5);
-                        if(number == powers) {
-                            cout << "Solution: " << number << endl;
-                            sum += number;
+                        for(f = 0; f < 10; f++) {
+                            number = (a * 100000) +
+                                     (b * 10000) +
+                                     (c * 1000) +
+                                     (d * 100) +
+                                     (e * 10) +
+                                     (f * 1);
+                            powers = pow(a, 5) +
+                                     pow(b, 5) +
+                                     pow(c, 5) +
+                                     pow(d, 5) +
+                                     pow(e, 5) +
+                                     pow(f, 5);
+                            if(number == powers) {
+                                cout << "Solution: " << number << endl;
+                                sum += number;
+                            }
                         }
                     }
                 }
