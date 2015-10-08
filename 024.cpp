@@ -17,7 +17,7 @@ int main() {
     // The last 9 digits can be ordered in 9! ways, so the first 362880 permutations start with 0
     for(int i = 1; i < 10; i++) {
         // Calculates how many permutations for the first number
-        int j = remain / factorial(initial.size() - i);
+        int j = remain / factorial(initial[initial.size() - i]);
         remain %= factorial(initial.size() - i);
 
         // Places the number of permutations found in the next "Available" slot in the number
@@ -38,7 +38,7 @@ int main() {
 
 // Calculates a number's factorial
 int factorial(int number) {
-    int product = 0;
+    int product = 1;
     for(int i = number; number > 0; number--) {
         product *= number;
     }
