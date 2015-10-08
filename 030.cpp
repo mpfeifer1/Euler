@@ -4,33 +4,36 @@
 using namespace std;
 
 int main() {
-    int a;
-    int b;
-    int c;
-    int d;
-    int e;
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    int d = 0;
+    int e = 0;
     int sum = 0;
 
-    for(a = 0; a < 10; a++) {
+    for(a = 1; a < 10; a++) {
         for(b = 0; b < 10; b++) {
             for(c = 0; c < 10; c++) {
                 for(d = 0; d < 10; d++) {
-                    int number = (a * 1000) +
-                                 (b * 100) +
-                                 (c * 10) +
-                                 (d * 1);
-                    int powers = pow(a, 4) +
-                                 pow(b, 4) +
-                                 pow(c, 4) +
-                                 pow(d, 4);
-                    if(number == powers) {
-                        cout << "Solution: " << number << endl;
-                        sum += number;
+                    for(e = 0; e < 10; e++) {
+                        int number = (a * 10000) +
+                                     (b * 1000) +
+                                     (c * 100) +
+                                     (d * 10) +
+                                     (e * 1);
+                        int powers = pow(a, 5) +
+                                     pow(b, 5) +
+                                     pow(c, 5) +
+                                     pow(d, 5) +
+                                     pow(e, 5);
+                        if(number == powers) {
+                            cout << "Solution: " << number << endl;
+                            sum += number;
+                        }
                     }
                 }
             }
         }
     }
-    sum -= 1; // Because 1 is not a sum
     cout << "Sum is " << sum << endl;
 }
