@@ -1,12 +1,14 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-void removeIndex(int i, int length, int number[]);
+void removeIndex(int i, vector<int> number);
 int factorial(int number);
 
 int main() {
-    int initial[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; // Leave it in numerical order
+    static const int arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; // Initialize array in numeric order
+    vector<int> initial (arr, arr + sizeof(arr) / sizeof(arr[0])); // Copy to 
     int length = 10;
     string permuted = "";
     int remain = 1000000 - 1; // Times to permute number
@@ -16,26 +18,23 @@ int main() {
     for(int i = 1; i < 10; i++) {
         // Calculates how many permutations for the first number
         int j = remain / factorial(length - i);
-        int remain %= factorial(length - i);
+        remain %= factorial(length - i);
 
         // Places the number of permutations found in the next "Available" slot in the number
         permuted += initial[j];
-        initial.
     }
 
     // Print out number
     cout << "Number is ";
-    for(int i = 0; i < size; i++) {
-        cout << number[i];
+    for(int i = 0; i < initial.size(); i++) {
+        cout << initial[i];
     }
     cout << endl;
 }
 
 // Swaps 2 array values
-void removeIndex(int i, int length, int number[]) {
-    for(int j = i; j < length; j++) {
-        
-    }
+void removeIndex(int i, vector<int> number) {
+    number.erase(number.begin() + i);
 }
 
 // Calculates a number's factorial
