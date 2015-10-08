@@ -32,6 +32,7 @@ int main() {
 
         // Break out early
         if(remain == 0) {
+            cout << "0";
             break;
         }
     }
