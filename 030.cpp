@@ -10,22 +10,25 @@ int main() {
     int d = 0;
     int e = 0;
     int sum = 0;
+    int number = 0;
+    int powers = 0;
 
     for(a = 1; a < 10; a++) {
         for(b = 0; b < 10; b++) {
             for(c = 0; c < 10; c++) {
                 for(d = 0; d < 10; d++) {
                     for(e = 0; e < 10; e++) {
-                        int number = (a * 10000) +
-                                     (b * 1000) +
-                                     (c * 100) +
-                                     (d * 10) +
-                                     (e * 1);
-                        int powers = pow(a, 5) +
-                                     pow(b, 5) +
-                                     pow(c, 5) +
-                                     pow(d, 5) +
-                                     pow(e, 5);
+                        number = (a * 10000) +
+                                 (b * 1000) +
+                                 (c * 100) +
+                                 (d * 10) +
+                                 (e * 1);
+                        cout << "Number is " << number << endl;
+                        powers = pow(a, 5) +
+                                 pow(b, 5) +
+                                 pow(c, 5) +
+                                 pow(d, 5) +
+                                 pow(e, 5);
                         if(number == powers) {
                             cout << "Solution: " << number << endl;
                             sum += number;
