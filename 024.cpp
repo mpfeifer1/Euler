@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -22,8 +23,15 @@ int main() {
         remain %= factorial(n - i);
 
         // Places the number of permutations found in the next "Available" slot in the number
-        permuted += initial[j];
+        permuted += to_string(initial[j]);
         initial.erase(initial.begin() + j);
+
+        // Print out number
+        cout << "Number is ";
+        for(int i = 0; i < n; i++) {
+            cout << initial[i];
+        }
+        cout << endl;
 
         // Break out early
         if(remain == 0) {
@@ -32,11 +40,7 @@ int main() {
     }
 
     // Print out number
-    cout << "Number is ";
-    for(int i = 0; i < n; i++) {
-        cout << initial[i];
-    }
-    cout << endl;
+    cout << "Number is " << permuted << endl;
 }
 
 // Calculates a number's factorial
