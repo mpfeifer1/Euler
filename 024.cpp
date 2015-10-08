@@ -22,7 +22,7 @@ int main() {
 
         // Places the number of permutations found in the next "Available" slot in the number
         permuted += initial[j];
-        initial.erase(initial.begin() + i);
+        initial.erase(initial.begin() + j);
         if(remain == 0) {
             break;
         }
