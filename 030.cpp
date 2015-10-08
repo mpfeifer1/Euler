@@ -9,7 +9,7 @@ int main() {
     int c;
     int d;
     int e;
-    int sum;
+    int sum = 0;
 
     for(a = 0; a < 10; a++) {
         for(b = 0; b < 10; b++) {
