@@ -13,7 +13,7 @@ int main() {
     int number = 0;
     int powers = 0;
 
-    for(a = 1; a < 10; a++) {
+    for(a = 0; a < 10; a++) {
         for(b = 0; b < 10; b++) {
             for(c = 0; c < 10; c++) {
                 for(d = 0; d < 10; d++) {
@@ -23,7 +23,6 @@ int main() {
                                  (c * 100) +
                                  (d * 10) +
                                  (e * 1);
-                        cout << "Number is " << number << endl;
                         powers = pow(a, 5) +
                                  pow(b, 5) +
                                  pow(c, 5) +
