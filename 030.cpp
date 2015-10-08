@@ -42,5 +42,6 @@ int main() {
             }
         }
     }
+    sum -= 1;
     cout << "Sum is " << sum << endl;
 }
