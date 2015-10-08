@@ -19,8 +19,8 @@ int main() {
     // The last 9 digits can be ordered in 9! ways, so the first 362880 permutations start with 0
     for(int i = 1; i < n; i++) {
         // Calculates how many permutations for the first number
-        int j = remain / (int)factorial(initial[n - i]);
-        remain %= factorial(initial[n - i]);
+        int j = remain / (int)factorial(arr[n - i]);
+        remain %= factorial(arr[n - i]);
 
         cout << "Remain is " << remain << endl;
         cout << "J is " << j << endl;
