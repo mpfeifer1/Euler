@@ -22,6 +22,8 @@ int main() {
         int j = remain / factorial(initial[n - i]);
         remain %= factorial(n - i);
 
+        cout << "J is " << j << endl;
+
         // Places the number of permutations found in the next "Available" slot in the number
         permuted += to_string(initial[j]);
         initial.erase(initial.begin() + j);
