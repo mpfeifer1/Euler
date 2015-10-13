@@ -15,9 +15,7 @@ int main() {
     }
 
     for(int i = 1; i <= 1000000; i *= 10) {
-        total *= (int)champernowne[i];
-        cout << "Cham: " << (int)champernowne[i] << endl;
-        cout << "Prod: " << total << endl;
+        total *= int(champernowne[i] - '0');
     }
 
     cout << total << endl;
