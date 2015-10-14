@@ -11,8 +11,15 @@ int main() {
     cout << "1: " << getPrime(1) << endl;
     cout << "2: " << getPrime(2) << endl;
     cout << "3: " << getPrime(3) << endl;
-    cout << "100: " << getPrime(100) << endl;
-    cout << "100: " << getPrime(100) << endl;
+    cout << "4: " << getPrime(4) << endl;
+    cout << "5: " << getPrime(5) << endl;
+    cout << "6: " << getPrime(6) << endl;
+    cout << "7: " << getPrime(7) << endl;
+    cout << "8: " << getPrime(8) << endl;
+    cout << "9: " << getPrime(9) << endl;
+    cout << "8: " << getPrime(8) << endl;
+    cout << "10000: " << getPrime(1000) << endl;
+    cout << "10000: " << getPrime(1000) << endl;
 }
 
 long int getPrime(int index) {
@@ -20,14 +27,14 @@ long int getPrime(int index) {
     static long int primes[79000]; // Guess of the number of primes under 1 million
     static int calculated = 2;
 
-    primes[0] = 0;
-    primes[1] = 1;
+    primes[0] = 2;
+    primes[1] = 3;
 
     if(primes[index]) { // If the specified value exists
         return primes[index];
     } else { // Calculate to that point and return
         for(; calculated <= index; calculated++) {
-            primes[calculated] = primes[calculated-1] + primes[calculated-2];
+            // use isPrime()
         }
         return primes[index];
     }
