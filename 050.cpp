@@ -3,10 +3,11 @@
 
 using namespace std;
 
-long int getPrime(int index);
-bool isPrime(long int number);
+int getPrime(int index);
+bool isPrime(int number);
 
 int main() {
+    cout << "Initializing: " << getPrime(-1) << endl;
     cout << "0: " << getPrime(0) << endl;
     cout << "1: " << getPrime(1) << endl;
     cout << "2: " << getPrime(2) << endl;
@@ -18,29 +19,34 @@ int main() {
     cout << "8: " << getPrime(8) << endl;
     cout << "9: " << getPrime(9) << endl;
     cout << "8: " << getPrime(8) << endl;
-    cout << "10000: " << getPrime(1000) << endl;
-    cout << "10000: " << getPrime(1000) << endl;
+    cout << "1000: " << getPrime(1000) << endl;
+    cout << "1000: " << getPrime(1000) << endl;
 }
 
-long int getPrime(int index) {
+int getPrime(int index) {
     // Create an array, fill with all primes under 1million, then use it to check
-    static long int primes[79000]; // Guess of the number of primes under 1 million
-    static int calculated = 2;
+    static const int length = 79000; // Guess of number of primes under 1million
+    static int primes[length];
+    static bool run = false;
+    static int prime = 2;
 
-    primes[0] = 2;
-    primes[1] = 3;
-
-    if(primes[index]) { // If the specified value exists
+    if(run) { // If the specified value exists
         return primes[index];
     } else { // Calculate to that point and return
-        for(; calculated <= index; calculated++) {
-            // use isPrime()
+        primes[1] = 2;
+        for(int i = 2; i < length; i++) {
+            while(!isPrime(prime)) {
+                prime++;
+            }
+            primes[i] = prime;
+            prime++;
         }
-        return primes[index];
+        run = true;
+        return 1;
     }
 }
 
-bool isPrime(long int number) {
+bool isPrime(int number) {
     for(int i = 2; i < sqrt(number) + 1; i++) {
         if(number % i == 0) {
             return false;
