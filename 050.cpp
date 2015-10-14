@@ -1,28 +1,42 @@
 #include <iostream>
+#include <cmath>
 
-using namespace main;
+using namespace std;
 
-int getPrime(int index);
-bool isPrime(int number);
+long int getPrime(int index);
+bool isPrime(long int number);
 
 int main() {
-    // Count all
+    cout << "0: " << getPrime(0) << endl;
+    cout << "1: " << getPrime(1) << endl;
+    cout << "2: " << getPrime(2) << endl;
+    cout << "3: " << getPrime(3) << endl;
+    cout << "100: " << getPrime(100) << endl;
+    cout << "100: " << getPrime(100) << endl;
 }
 
-int getPrime(int index) {
+long int getPrime(int index) {
     // Create an array, fill with all primes under 1million, then use it to check
-    static int primes[79000]; // Guess of the number of primes under 1 million
+    static long int primes[79000]; // Guess of the number of primes under 1 million
+    static int calculated = 2;
 
     primes[0] = 0;
     primes[1] = 1;
 
-    
+    if(primes[index]) { // If the specified value exists
+        return primes[index];
+    } else { // Calculate to that point and return
+        for(; calculated <= index; calculated++) {
+            primes[calculated] = primes[calculated-1] + primes[calculated-2];
+        }
+        return primes[index];
+    }
 }
 
-bool isPrime(int number) {
+bool isPrime(long int number) {
     for(int i = 2; i < sqrt(number) + 1; i++) {
         if(number % i == 0) {
-            return false
+            return false;
         }
     }
     return true;
