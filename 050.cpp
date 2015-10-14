@@ -7,8 +7,20 @@ int getPrime(int index);
 bool isPrime(int number);
 
 int main() {
+
     getPrime(-1); // Initialization
-    
+    for(int n = 1; n <= 79000; n++) {
+        int sum;
+        for(int o = 1; o <= 79000; o++) {
+            sum += getPrime(n);
+            if(isPrime(sum) && sum > 0 && sum < 1000000) {
+                cout << sum << endl;
+            }
+            if(sum > 1000000) {
+                break;
+            }
+        }
+    }
 }
 
 int getPrime(int index) {
@@ -42,3 +54,4 @@ bool isPrime(int number) {
     }
     return true;
 }
+
