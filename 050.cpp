@@ -7,20 +7,8 @@ int getPrime(int index);
 bool isPrime(int number);
 
 int main() {
-    cout << "Initializing: " << getPrime(-1) << endl;
-    cout << "0: " << getPrime(0) << endl;
-    cout << "1: " << getPrime(1) << endl;
-    cout << "2: " << getPrime(2) << endl;
-    cout << "3: " << getPrime(3) << endl;
-    cout << "4: " << getPrime(4) << endl;
-    cout << "5: " << getPrime(5) << endl;
-    cout << "6: " << getPrime(6) << endl;
-    cout << "7: " << getPrime(7) << endl;
-    cout << "8: " << getPrime(8) << endl;
-    cout << "9: " << getPrime(9) << endl;
-    cout << "8: " << getPrime(8) << endl;
-    cout << "1000: " << getPrime(1000) << endl;
-    cout << "1000: " << getPrime(1000) << endl;
+    getPrime(-1); // Initialization
+    
 }
 
 int getPrime(int index) {
