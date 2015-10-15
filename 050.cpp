@@ -7,20 +7,23 @@ int getPrime(int index);
 bool isPrime(int number);
 
 int main() {
-
+    int max = 0;
+    int sum = 0;
     getPrime(-1); // Initialization
-    for(int n = 1; n <= 79000; n++) {
-        int sum;
-        for(int o = 1; o <= 79000; o++) {
-            sum += getPrime(n);
-            if(isPrime(sum) && sum > 0 && sum < 1000000) {
-                cout << sum << endl;
-            }
-            if(sum > 1000000) {
-                break;
+    for(int n = 1; n <= 168; n++) {
+        sum += getPrime(n);
+        cout << sum << endl;
+        if(isPrime(sum) && sum > 0 && sum < 1000) {
+            //cout << sum << endl;
+            if(sum > max) {
+                max = sum;
             }
         }
+        if(sum > 1000) {
+            break;
+        }
     }
+    cout << "Max is " << max << endl;
 }
 
 int getPrime(int index) {
