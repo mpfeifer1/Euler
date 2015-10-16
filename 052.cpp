@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -21,8 +22,9 @@ int main() {
 bool permutated(long int number1, long int number2) {
     string num1 = to_string(number1);
     string num2 = to_string(number2);
-    cout << "num1: " << num1 << endl;
-    return false;
+    sort(num1.begin(), num1.end());
+    sort(num2.begin(), num2.end());
+    return num1 == num2;
 }
 
 bool permutatedMultiple(long int number) {
