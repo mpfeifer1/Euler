@@ -1,7 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -19,22 +17,21 @@ int main() {
 
     //sort(names);
 
-    for(int i = 0; i < 6000; i++) {
-        cout << names[i] << " ";
-    }
+    //for(int i = 0; i < 6000; i++) {
+    //    cout << names[i] << " ";
+    //}
 
     cout << endl;
 }
 
-void sort(char arr[][30]) {
-    /*
-    while(!isSorted(arr)) {
-        int index = 0;
-        cout << "Item being sorted: " << arr[index] << endl;
-        if(arr[index] > arr[index + 1]) {
-            swap(arr[index], arr[index+1]);
-        }
-        index++;
-    }
-    */
+void sort(char arr[][30], int left, int right) {
+    
+}
+
+void swap(char arr[][30], int index1, int index2) {
+    char name1[31] = arr[index1];
+    char name2[31] = arr[index2];
+
+    arr[index2] = name1;
+    arr[index1] = name2;
 }
