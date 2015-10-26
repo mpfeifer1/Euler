@@ -7,28 +7,23 @@ using namespace std;
 void sort(char arr[][30], int left, int right);
 void swap(char arr[][30], int index1, int index2);
 void copy(char destination[30], char source[30]);
-int calculate(char arr[][30]);
+long int calculate(char arr[][30]);
 int charToInt(char c);
+
+#define NAMES 5163
 
 int main() {
     ifstream file("sources/022.txt");
-    char names[6000][30] = {'\0'}; // Array of names
+    char names[NAMES][30] = {'\0'}; // Array of names
     char temp[31];
 
-    for(int i = 0; i < 6000; i++) {
+    for(int i = 0; i < NAMES; i++) {
         file.getline(temp, 31, '"'); // Gets rid of comma
         file.getline(names[i], 31, '"');
     }
 
-    sort(names, 0, 6000 - 1);
+    sort(names, 0, NAMES - 1);
 
-    for(int i = 0; i < 6000; i++) {
-        if(names[i][0]) {
-            cout << names[i] << " ";
-        }
-    }
-
-    cout << endl;
     cout << "Total score is " << calculate(names) << endl;
 }
 
@@ -79,18 +74,19 @@ void copy(char destination[30], char source[30]) {
     }
 }
 
-int calculate(char arr[][30]) {
-    int sum = 0;
-    for(int i = 6000 - 1; i >= 0; i--) {
+long int calculate(char arr[][30]) {
+    long int sum = 0;
+    for(int i = 0; i < NAMES; i++) {
         int j = 0;
         int product = 0;
         while(arr[i][j]) {
             product += charToInt(arr[i][j]);
             j++;
         }
-        product *= i;
+        product *= (i + 1);
         sum += product;
     }
+    return sum;
 }
 
 int charToInt(char c) {
