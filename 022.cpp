@@ -5,44 +5,29 @@
 
 using namespace std;
 
-bool isSorted(vector<string> arr);
-vector<string> sort(vector<string> arr);
+void sort(char arr[][30]);
 
 int main() {
-    ifstream file("sources/042.txt");
-    vector<string> names(5000); // Array of names
-    string nameList; // String of names (copy of text file)
-    getline(file, nameList); // copies names to namelist
+    ifstream file("sources/022.txt");
+    char names[6000][30] = {'\0'}; // Array of names
+    char temp[31];
 
-    int index = 0;
-    int lengthToQuote = 0;
-    string currentWord = "";
-
-    while(index < nameList.length()) {
-        while(nameList[index] != '"') {
-            index++;
-        }
-        lengthToQuote = 1;
-        while(nameList[index + lengthToQuote] != '"') {
-            lengthToQuote++;
-        }
-
-        currentWord = nameList.substr(index + 1, lengthToQuote - 1);
-        index += currentWord.length() + 2;
+    for(int i = 0; i < 6000; i++) {
+        file.getline(temp, 31, '"'); // Gets rid of comma
+        file.getline(names[i], 31, '"');
     }
 
-    sort(names);
+    //sort(names);
 
-    for(int i = 0; i < 5000; i++) {
-        cout << names[i] << endl;
+    for(int i = 0; i < 6000; i++) {
+        cout << names[i] << " ";
     }
+
+    cout << endl;
 }
 
-bool isSorted(vector<string> arr) {
-    return false;
-}
-
-vector<string> sort(vector<string> arr) {
+void sort(char arr[][30]) {
+    /*
     while(!isSorted(arr)) {
         int index = 0;
         cout << "Item being sorted: " << arr[index] << endl;
@@ -51,5 +36,5 @@ vector<string> sort(vector<string> arr) {
         }
         index++;
     }
-    return arr;
+    */
 }
