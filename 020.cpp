@@ -9,14 +9,22 @@ void multiply(int factorial[], int number);
 int main() {
     int factorial[SIZE] = {1}; // Threre are 158 digits in 100!
 
-    for(int i = 1; i < 10; i++) {
+    for(int i = 1; i < 100; i++) {
         multiply(factorial, i);
     }
 
+/*
     for(int i = 0; i < SIZE; i++) {
         cout << factorial[i];
     }
     cout << endl;
+*/
+
+    int sum = 0;
+    for(int i = 0; i < SIZE; i++) {
+        sum += factorial[i];
+    }
+    cout << "Sum is " << sum << endl;
 
     return 0;
 }
