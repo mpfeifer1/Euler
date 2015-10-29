@@ -13,7 +13,6 @@ int main() {
     for(int i = 2; i <= (SIZE * SIZE); i++) {
         if(timesSkipped == numToSkip) {
             sum += i;
-            cout << "Added " << i << endl;
             timesSkipped = 0;
             cornersHit++;
         } else {
