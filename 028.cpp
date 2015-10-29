@@ -3,12 +3,14 @@
 using namespace std;
 
 int main() {
+    const int SIZE = 1001;
+
     long int sum     = 1; // Starts at 1 for center point
     int numToSkip    = 1; // Number of items to skip
     int timesSkipped = 0;
     int cornersHit   = 0;
 
-    for(int i = 2; i <= (5 * 5); i++) {
+    for(int i = 2; i <= (SIZE * SIZE); i++) {
         if(timesSkipped == numToSkip) {
             sum += i;
             cout << "Added " << i << endl;
