@@ -44,7 +44,7 @@ int main() {
 bool permutate(string &s) {
     // Calculate highest index j such that s[j] < s[j+1]
     int i = 9;
-    while(i > 0 && s.at(i-1) >= s.at(i)) {
+    while(i > 0 && s[i-1] >= s[i]) {
         i--;
     }
     cout << "1";
@@ -54,19 +54,19 @@ bool permutate(string &s) {
     }
     cout << "2";
     // Calculate highest index k such that s[k] > s[j]
-    int j = 8;
-    while(s.at(j) <= s.at(i-1)) {
+    int j = 9;
+    while(s[j] <= s[i-1]) {
         j--;
         cout << "Decremented\n";
     }
     cout << "3";
     // Swap first two numbers
-    swap(s.at(i), s.at(j));
+    swap(s[i], s[j]);
     cout << "4";
     // Swap the rest down the line
     j = 8;
     while(i < j) {
-        swap(s.at(i), s.at(j));
+        swap(s[i], s[j]);
         i++;
         j--;
     }
