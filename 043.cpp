@@ -43,32 +43,32 @@ int main() {
 // Return next permutation of s
 bool permutate(string &s) {
     // Calculate highest index j such that s[j] < s[j+1]
-    int j = -1;
-    for(int i = 9; i > 0; i--) {
-        if(s.at(i) < s.at(i+1)) {
-            j = i;
-        }
+    int i = 9;
+    while(i > 0 && s.at(i-1) >= s.at(i)) {
+        i--;
     }
-
+    cout << "1";
     // Quit if last permutation
-    if(j == -1) {
+    if(i == 0) {
         return false;
     }
-
+    cout << "2";
     // Calculate highest index k such that s[k] > s[j]
-    int k = -1;
-    for(int i = j + 1; i < 10; i++) {
-        if(s.at(i) > s.at(j)) {
-            k = i;
-        }
+    int j = 8;
+    while(s.at(j) <= s.at(i-1)) {
+        j--;
+        cout << "Decremented\n";
     }
-
+    cout << "3";
     // Swap first two numbers
-    swap(s.at(j), s.at(k));
-
+    swap(s.at(i), s.at(j));
+    cout << "4";
     // Swap the rest down the line
-    for(int i = j+1; i < 9; i++) {
-        swap(s.at(i), s.at(i+1));
+    j = 8;
+    while(i < j) {
+        swap(s.at(i), s.at(j));
+        i++;
+        j--;
     }
 
     return true;
@@ -77,8 +77,6 @@ bool permutate(string &s) {
 bool divisible02(string s) {
     s = s.substr(1,3);
     int i = stoi(s);
-    //cout << s << endl;
-    //cout << ((i % 2) == 0) << endl;
     return i % 2 == 0;
 }
 
