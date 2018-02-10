@@ -1,25 +1,37 @@
+#include <unordered_map>
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
-bool isPrime(int n) {
-    if(n < 2) {
-        return false;
+int cycle(int n) {
+    unordered_map<int,int> seen;
+    int remainder = 1;
+    int length = 0;
+    while(remainder > 0 && seen.count(remainder) == 0) {
+        seen[remainder] = length;
+        length++;
+        remainder *= 10;
+        remainder %= n;
     }
-    for(int i = 2; i < sqrt(n) + 1; i++) {
-        if(n % i == 0) {
-            return false;
-        }
+    if(remainder != 0) {
+        return length - seen[remainder];
     }
-    return true;
+    return 0;
 }
 
 int main() {
-    for(int i = 0; i <= 1000; i++) {
-        cout.precision(17);
-        if(isPrime(i)) {
-            cout << i << " " << fixed << 1.0/i << endl;
+    int best = 0;
+    int bestcycle = 0;
+    for(int i = 1; i <= 1000; i++) {
+        int here = cycle(i);
+
+        if(here > bestcycle) {
+            bestcycle = here;
+            best = i;
         }
+
+        cout << "I: " << i << " " << here << endl;
     }
+    cout << "Best: " << best << endl;
 }
