@@ -5,36 +5,39 @@
 
 using namespace std;
 
-int xor(char data, char cipher);
-int toAscii(char c);
-
-int main() {
-    // Import from file
-    ifstream file("sources/059.txt");
-    string message;
-    getline(file, message);
-
-    // Parse file to array
-    vector<int> characters();
-    int index = 0;
-    while(still stuff in message) {
-        get stuff until ,
-        move forward index
+void decrypt(string v, vector<int> arr) {
+    for(int i = 0; i < v.size(); i++) {
+        v[i] ^= arr[i%3];
     }
 
-    // Find encryption key
+    if( v.find("the") != string::npos &&
+        v.find("if") != string::npos &&
+        v.find("human") != string::npos &&
+        v.find("}") == string::npos) {
 
-    // Decrypt file
-
-    // (Temporary) Output message
-
-    // Sum ASCII characters
+        int sum = 0;
+        for(auto i : v) {
+            sum += i;
+        }
+        cout << v << endl;
+        cout << sum << endl;
+    }
 }
 
-int xor(char data, char cipher) {
-    return toAscii(data) ^ toAscii(cipher);
-}
+int main() {
+    string v;
 
-int toAscii(char c) {
-    return (int)c;
+    int i;
+    while(cin >> i) {
+        v.push_back(i);
+        cin.ignore();
+    }
+
+    for(int i = 'a'; i <= 'z'; i++) {
+        for(int j = 'a'; j <= 'z'; j++) {
+            for(int k = 'a'; k <= 'z'; k++) {
+                decrypt(v,{i,j,k});
+            }
+        }
+    }
 }
